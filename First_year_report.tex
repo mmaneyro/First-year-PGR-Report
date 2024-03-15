@@ -1,0 +1,137 @@
+\input{preamble}
+
+
+\begin{document}
+
+
+\frenchspacing
+% input portada español-ingles
+
+\hypertarget{prelim}{}
+\bookmark[level=part,dest=prelim]{Preliminaries}
+\input{portada}
+
+\fancyhf{}
+\fancyhead[LE]{\leftmark}
+\fancyhead[RO]{\rightmark}
+\fancyfoot[C]{\thepage}
+\pagestyle{fancy}
+
+%especifica formato de headers de captitulos y secciones, achica la fuente que se toma mas grande en la portada
+
+\changefontsizes{12pt}
+
+\titleformat{\chapter}[block]{\raggedright\mdseries\huge}{\begin{minipage}[t]{0.1\textwidth}\colorbox{black}{\hspace{1mm}\huge\textcolor{white}\thechapter \hspace{1mm}}\end{minipage}}{0mm}{\begin{minipage}[t]{0.7\textwidth}}[\end{minipage}]%[\vspace{-9mm}\textcolor{black}{\rule{\textwidth}{1pt}}]
+%minipages con alineacion top aseguran que independientemente del largo del titulo la pimera linea esta verticalmente al mismo nivel que el cuadrado con el numero. el tamano de las minipages regula la separacion entre el cuadrado y el texto y el ancho que puede ocupar el texto. la minipage tambien impone que la segunda linea del titulo no quede directamente abajo del cuadrado
+
+\titleformat{\section}[block]{\mdseries\Large\raggedright}{\thesection\textcolor{black}{$\vert$}\enskip}{0mm}{}
+
+\titleformat{\subsection}[block]{\mdseries\large\raggedright}{\thesubsection\textcolor{black}{$\vert$}\enskip}{0mm}{}
+
+\titleformat{\subsubsection}[block]{\mdseries\it\raggedright}{\thesubsubsection\textcolor{black}{$\vert$}\enskip}{0mm}{}
+
+\setlength{\headheight}{15pt}
+
+\raggedbottom
+\interfootnotelinepenalty=10000
+%pagina libre despues de portada, sin numerar
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\addtocounter{page}{-1}
+
+% numeracion romana para las paginas introductorias
+\pagenumbering{roman}
+\setstretch{1.25}
+% contenido introductorio
+
+%--------------------------
+\frontmatter
+
+% \input{Acknowledgements}
+% \clearpage
+\hypertarget{abstract}{}
+\bookmark[level=part,dest=abstract]{Abstract}
+% \input{Resumen}
+\clearpage
+\input{Abstract}
+
+
+
+%%
+%%Indice
+\clearpage
+\hypertarget{contents}{}
+\bookmark[level=part,dest=contents]{Contents}
+\pdfbookmark{\contentsname}{toc}
+\tableofcontents
+\clearpage
+\pdfbookmark{List of Figures}{lof}
+\listoffigures
+\clearpage
+\pdfbookmark{List of Tables}{lot}
+\listoftables
+
+%--------------------------
+
+
+\addtocounter{page}{-1}
+
+% numeracion paginas con contenido
+%\pagenumbering{arabic}
+
+
+\mainmatter
+
+\bookmarksetup{startatroot}
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction} %incluye capitulo no numerado en indice
+\markboth{\uppercase{Introduction}}{\uppercase{Introduction}} %asegura que el header del capitulo no tiene etiqueta
+\input{Introduction}
+
+
+
+%quita "chapter" de los headers
+\renewcommand{\chaptername}{}
+
+%input de los distintos capitulos
+
+\input{Quantum_Computing}
+\input{Neutrino_Physics}
+\input{Project_outlook.tex}
+\input{conclusions}
+
+\newpage
+
+\setstretch{1}
+\markboth{\uppercase{Bibliography}}{\uppercase{Bibliography}} 
+\bibliographystyle{aip}
+\bibliography{first_year_report}\addcontentsline{toc}{chapter}{Bibliography} 
+
+%crea apendice con una nueva numeracion de secciones y nuevo formato del header de las secciones (coherente con el de los capitulos en el cuerpo del documento
+\setstretch{1.25}
+\chapter*{Appendices} 
+\addcontentsline{toc}{chapter}{Appendices} %incluye capitulo no numerado en indice
+\markboth{\uppercase{Appendices}}{\uppercase{Appendices}} 
+
+\setcounter{section}{0}
+\renewcommand{\thesection}{\Alph{section}}
+\appendix
+
+\titleformat{\section}[block]{\mdseries\Large\raggedright}{\begin{minipage}[t]{0.08\textwidth}\colorbox{black}{\hspace{1mm}\Large\textcolor{white}\thesection \hspace{1mm}}\enskip\end{minipage}}{0mm}{\begin{minipage}[t]{0.7\textwidth}}[\end{minipage}]
+
+
+\counterwithin*{equation}{section}
+\counterwithin*{figure}{section}
+\renewcommand\theequation{\thesection.\arabic{equation}}     
+\renewcommand\thefigure{\thesection.\arabic{figure}} 
+\renewcommand\thetable{\thesection.\arabic{table}}        
+
+\input{apendices}
+
+\end{document}
+
+
+
+ 

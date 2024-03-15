@@ -1,0 +1,50 @@
+% !TEX root = ./tesis.tex
+\documentclass[a4paper,openany,titlepage,10pt]{book}
+\usepackage{amsmath} % simbolos miscelaneos
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{physics} 
+\usepackage[bb=stixtwo]{mathalpha}
+\usepackage[T1]{fontenc}
+\usepackage[main=english, spanish]{babel}
+\usepackage{graphicx}
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+\usepackage{scrextend} %tamano de fuente global
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[dvipsnames,table]{xcolor} %opciones de colores para \textcolor
+\usepackage{titlesec} %manipula tamanos de fuente de titulos de secc
+\usepackage{fancyhdr}    %modificar header/ footer
+\usepackage{lipsum}
+\usepackage{eulervm} %fuente matematica
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{calc}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{intersections}
+\usepackage[sfdefault]{classico}
+\usepackage{braket}
+\usepackage{setspace}
+\usepackage{placeins}
+\usepackage{enumitem}
+\usepackage{xstring}
+\usepackage[autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+%\captionsetup{font={sf, small}}
+\usepackage{nicematrix}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{microtype}
+% \usepackage{epsfig}
+\usepackage{indentfirst}
+\usepackage[pdfauthor={Marina Maneyro},
+pdftitle={},
+pdfsubject={},
+pdfkeywords={}]{hyperref} %referencias clickeables y metadata
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black,linktoc=all}
+\usepackage{cite}
+\usepackage{bookmark}
+
