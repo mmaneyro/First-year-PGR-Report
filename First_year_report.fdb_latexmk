@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex First_year_report"] 1710538378.09137 "First_year_report.aux" "First_year_report.bbl" "First_year_report" 1710538385.77962 0
+["bibtex First_year_report"] 1710940306.35328 "First_year_report.aux" "First_year_report.bbl" "First_year_report" 1710940505.37911 0
   "./aip.bst" 1710271449 18972 75ac2ceda779ad73355b496343230c3f ""
   "./first_year_report.bib" 1710336516 37537 136ab89e7724aeaa05649e01d55b502b ""
-  "First_year_report.aux" 1710538384 8130 b884310c9881141e43eed92739fd7ab8 "lualatex"
+  "First_year_report.aux" 1710940503 8130 b884310c9881141e43eed92739fd7ab8 "lualatex"
   (generated)
   "First_year_report.bbl"
   "First_year_report.blg"
   (rewritten before read)
-["lualatex"] 1710538379.17324 "c:/Users/mmaneyro/Downloads/First year PGR Report/First_year_report.tex" "First_year_report.pdf" "First_year_report" 1710538385.78132 0
+["lualatex"] 1710940498.67084 "c:/Users/mmaneyro/Downloads/First year PGR Report/First_year_report.tex" "First_year_report.pdf" "First_year_report" 1710940505.38087 0
   "Abstract" 1710292181 158 00a9eb3f920f93056cd56eedbba6e97a ""
   "C:/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1710286161 128402 c21eef7850fc40dffdd245b92b76849b ""
   "C:/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1710283450 127319 276b74b151e9086394491ff52099b820 ""
@@ -16,17 +16,17 @@
   "C:/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/urwclassico-italic.luc" 1710286162 96371 dcd6414c08c0cecdf6497c7c4e53bda9 ""
   "C:/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/urwclassico-regular.luc" 1710286161 98115 ffce39f0738671604f87cf5a2528a54c ""
   "C:/texlive/2023/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1710283450 306485 5de858a3bc152289f1c05674619403f7 ""
-  "First_year_report.aux" 1710538384 8130 b884310c9881141e43eed92739fd7ab8 "lualatex"
-  "First_year_report.bbl" 1710538379 2426 b582e0e8421ae8b8a4461e3c1e496ca4 "bibtex First_year_report"
-  "First_year_report.lof" 1710538384 110 a51cfa89ef63f1755f6c9a71705a96e5 "lualatex"
-  "First_year_report.lot" 1710538384 110 a51cfa89ef63f1755f6c9a71705a96e5 "lualatex"
+  "First_year_report.aux" 1710940503 8130 b884310c9881141e43eed92739fd7ab8 "lualatex"
+  "First_year_report.bbl" 1710940307 2426 b582e0e8421ae8b8a4461e3c1e496ca4 "bibtex First_year_report"
+  "First_year_report.lof" 1710940503 110 a51cfa89ef63f1755f6c9a71705a96e5 "lualatex"
+  "First_year_report.lot" 1710940503 110 a51cfa89ef63f1755f6c9a71705a96e5 "lualatex"
   "First_year_report.tex" 1710538370 3983 c202758fa8d944d1b076eb238da8a02f ""
-  "First_year_report.toc" 1710538384 625 c49fa2d8479739aa3f788b1529be952a "lualatex"
+  "First_year_report.toc" 1710940503 625 c49fa2d8479739aa3f788b1529be952a "lualatex"
   "Introduction" 1710272244 41 0dd41260df2e3d80eee063d1117565c2 ""
   "LOGOTIPO ANII + DENOMINACION 01_CMYK.jpg" 1710286309 893769 3a193f14767aca15aad9dcb1bd1fa337 ""
-  "Neutrino_Physics.tex" 1710292669 67 7c79984d78c99a18c08d6897dccaf930 ""
+  "Neutrino_Physics.tex" 1710940458 546 50036333d6f4ada99d20b7f2eeac16fc ""
   "Project_outlook.tex" 1710292810 66 4bbeeab47fcd4c869b09ba1dc481bd0a ""
-  "Quantum_Computing.tex" 1710336540 756 9fef47a82f91eabb0c4c6141549cc785 ""
+  "Quantum_Computing.tex" 1710940497 795 d455a5fce8ba385383b044a420464d5f ""
   "UoL - Logo - CMYK.png" 1710275189 15688 7a7fd7396512c356021eae405c7b5571 ""
   "apendices.tex" 1710272161 38 f8368826ce42d74bea4b8044b18acf4c ""
   "c:/Users/mmaneyro/Downloads/First year PGR Report/First_year_report.tex" 1710538370 3983 c202758fa8d944d1b076eb238da8a02f ""
