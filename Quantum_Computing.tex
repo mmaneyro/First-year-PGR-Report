@@ -22,24 +22,23 @@ Amplitudes $\alpha$ and $\beta$ are complex numbers obeying $|\alpha|^2+|\beta|^
 The length 1 qubit states can be represented in a Block sphere, parametrizing the whole continuum of qubit states.
 \begin{figure}
     \centering
-    \begin{tikzpicture}[scale=1.65]
+    \begin{tikzpicture}[scale=1.75]
         \draw (0,0) circle (1.5);
         \draw[dashed] (0,0) ellipse (1.5 and 0.5);
         \draw[-latex] (0,0)--(2,0) node[label={[shift={(0.2,-0.35)}]$y$}]{};
         \draw[-latex] (0,0)--(0,2) node[label={[shift={(0.2,-0.25)}]$z$}]{};
         \draw[-latex] (0,0)--(-0.75,-0.75)node[label={[shift={(-0.2,-0.4)}]$x$}]{};
-        \node[label={[shift={(0.55,-0.25)}]$\ket{0}$}] at (0,1.46){\textbullet};
-        \node[label={[shift={(0.25,-1)}]$\ket{1}$}] at (0,-1.54){\textbullet};
-        \draw[-latex,NavyBlue,very thick] (0,0)--(0.65,1);
-        \node at (0,-0.01){\textbullet};
-        \draw[densely dotted](0.65,0.98)--++(0,-1.3)--(0,0);
-        \node[label={[shift={(0.45,-0.5)}]$\ket{\psi}$}] at (0.65,1){};
+        \node[label={[shift={(0.55,-0.25)}]$\ket{0}$}] at (0,1.475){\textbullet};
+        \node[label={[shift={(0.25,-1)}]$\ket{1}$}] at (0,-1.525){\textbullet};
         \draw[rotate=90] (0.65,0) arc (0:-33:0.65) node[midway,label={[shift={(0,-0.2)}]$\theta$}]{};
+        \draw[-latex,NavyBlue,very thick] (0,0)--(0.65,1);
+        \node at (0,-0.025){\textbullet};
+        \draw[dashed](0.65,0.98)--++(0,-1.3)--(0,0);
+        \node[label={[shift={(0.45,-0.5)}]$\ket{\psi}$}] at (0.65,1){};
         \draw[rotate=-135] (0.35,0) arc (0:110:0.35) node[midway,label={[shift={(-0.1,-0.2)}]$\phi$}]{};
 
-        
     \end{tikzpicture}
-    \caption{Bloch sphere representation of an arbitrary qubit state (blue). Note how the orthogonal basis states $\ket{0}$ and $\ket{1}$ are shown as diametrically opposite.}
+    \caption[Bloch sphere representation of a qubit state]{Bloch sphere representation of an arbitrary qubit state (blue). Note how the orthogonal basis states $\ket{0}$ and $\ket{1}$ are shown as diametrically opposite.}
     \end{figure}
 In the Bloch sphere, qubit states are represented in three-dimensional space in terms of two real parameters $\theta$ and $\phi$:
 \begin{equation}
@@ -101,7 +100,7 @@ Linearity is not the only property of quantum mechanical systems that must be re
 \end{equation}
 where $I$ is the $2\times 2$ identity operator.
 
-These properties of linearity and unitarity generalize for gates acting on multiple qubits. One useful example of this is the two-qubit CNOT gate (also known as controlled $NOT$):
+The properties of linearity and unitarity generalize for gates acting on multiple qubits. One useful example of this is the two-qubit CNOT gate (also known as controlled $NOT$):
 \begin{equation}
     CNOT=\begin{bmatrix}
         1&0&0&0\\
@@ -111,25 +110,42 @@ These properties of linearity and unitarity generalize for gates acting on multi
     \end{bmatrix}
 \end{equation}
 This gate performs a $NOT$ operation on the second qubit, as conditioned by the state of the first qubit (which is left unchanged). The effect of this gate is summarized in the following table:
-\begin{table}
+\begin{table}[hbt!]
     \centering
-\begin{tabular}{l | c }
-    IN & OUT\\
-    \hline \hline
-    $\ket{00}$ & $\ket{00}$ \\ 
-    $\ket{01}$ & $\ket{01}$\\
-    $\ket{10}$ & $\ket{11}$\\
-    $\ket{11}$ & $\ket{10}$
-\end{tabular}
+    \begin{tabular}{l | c }
+        IN & OUT\\
+        \hline \hline
+        $\ket{00}$ & $\ket{00}$ \\ 
+        $\ket{01}$ & $\ket{01}$\\
+        $\ket{10}$ & $\ket{11}$\\
+        $\ket{11}$ & $\ket{10}$
+    \end{tabular}
+\caption{$CNOT$ gate truth table}
 \end{table}
-The equivalency between the $CNOT$ gate and a classical counterpart is not as direct as what can be drawn between the classical and quantum $NOT$ operations. This is due to yet another useful property stemming from the quantum nature. Quantum logical gate representations are always invertible, meaning that their effect is reversible. Meanwhile, the classical analog to the $CNOT$ operation ($XOR$ gate) loses information, and therefore the state before its application cannot be recovered.
+\FloatBarrier
 
-Another factor of note regarding the $CNOT$ gate is that it can be used to prepare entangled states, such as the aforementioned Bell states. It is worth mentioning as well, that the conditional action based on the state of the first qubit does not cause a collapse of the superposition state, making the $CNOT$ gate an extremely powerful tool. In fact, it has been proven that the use of $CNOT$ gates alongside the set of single-qubit rotations is sufficient to perform any operation (on any number of qubits). This is known as universality, and can theoretically be realized to arbitrary accuracy.
+The equivalency between the $CNOT$ gate and a classical counterpart is not as direct as what can be drawn between the classical and quantum $NOT$ operations. This is due to yet another useful property stemming from the quantum nature. Quantum logical gate representations are always invertible, meaning that their effect is reversible. Meanwhile, the classical analogue to the $CNOT$ operation ($XOR$ gate) loses information, and therefore the state before its application cannot be recovered.
 
+ It is worth mentioning as well that the conditional action based on the state of the first qubit does not constitute a measurement. Due to this, it does not cause a collapse of the superposition state, making the $CNOT$ gate an extremely powerful tool. In fact, it is proven that the use of $CNOT$ gates alongside the set of single-qubit rotations is sufficient to perform any operation (on any number of qubits). This is known as universality, and can theoretically be realized to arbitrary accuracy.
+ Another aspect of note is that the $CNOT$ gate can be used to prepare entangled states, such as the aforementioned Bell states.
 
+\section{Current Capabilities}
 
+\subsection{The NISQ era}
+Presently, quantum computing is in its NISQ era, standing for (Noisy Intermediate-Scale Quantum). This denomination refers to some of the main challenges of quantum computation. 
 
+The first challenge is noise. Even within the context of classical computing, there exists a possibility of random errors that may modify the state of one or more bits. The quantum properties of qubits make them particularly susceptible to environmental interference. As was discussed previously, an interaction (or measurement) will lead to quantum decoherence, and so eliminate the useful characteristics of the system. Due to this, hardware implementations need to put special emphasis on, for example, isolating qubits and preventing thermal fluctuations. 
 
+Another way of approaching noise mitigation is implementing error correction algorithms, which can identify and rectify issues that arise. Executing these algorithms, however, necessitates using more qubits in a given calculation. This leads to the second challenge of the NISQ era: the intermediate scale. This refers to the size of the quantum systems that can actually be realized in hardware. The size or volume is thought of in terms of qubit number and number of applied gates. In a circuit comprised of qubits with some probability of failure, the probability of having some error increases with the qubit number. Likewise, whenever a gate is applied there is some probability an error will be caused, so the overall probability of error increases the more we operate on the system.
+
+Recent work by several companies (such as IBM, Rigetti, and Google) has enabled great strides in the number of qubits of current quantum systems, which in the last few years has jumped from below 50 to around 1000 qubits. In the short and intermediate term there is still plenty of work to be done to not only allow for the increase of this number, but also ensure higher coherence times, more accurate gate operations, and more efficient error correction algorithms. These are some of the elements that will come into play in the development of fault-tolerant\footnote{Fault tolerant systems can continue functioning adequately even if some errors or partial failures are present.} quantum computers and the achievement of quantum advantage\footnote{Quantum advantage refers to conclusively proving that a quantum computer can solve a problem that no classical computer can solve within a reasonable timeframe. Computationally complex problems can often be theoretically computable classically, however, due to exponentially increasing timeframes may only be achieved at time scales beyond human interest.}
+.
+
+The basic ideas behind Quantum Error Correction will be addressed in a later chapter. The next subsection provides an overview of some of the physical systems that are currently used as quantum hardware.
+
+\subsection{Hardware approaches}
+
+\section{Bosonic Systems}
 
 
 

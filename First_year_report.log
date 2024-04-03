@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2024.3.12)  3 APR 2024 14:37
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2024.3.12)  3 APR 2024 20:26
  restricted system commands enabled.
  file:line:error style messages enabled.
 **"c:/Users/mmaneyro/Downloads/First year PGR Report/First_year_report.tex"
@@ -1105,7 +1105,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip74
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 47.
+Package hyperref Info: Option `colorlinks' set `true' on input line 48.
  (c:/texlive/2023/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
@@ -1203,9 +1203,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-
-Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
- on input line 4.
+Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 Package csquotes Info: Redefining character " on input line 4.
 \c__nicematrix_shift_Ldots_last_row_dim=\dimen353
@@ -1390,23 +1388,31 @@ LaTeX Font Info:    Font shape `TU/URWClassico(0)/m/n' will be
 LaTeX Font Info:    Calculating math sizes for size <14.39996> on input line 12.
 [2
 
-] [3] [4] [5] [6]) (./Neutrino_Physics.tex [7
+] [3] [4] [5] [6]
+LaTeX Font Info:    Font shape `TU/URWClassico(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 141.
+LaTeX Font Info:    Font shape `TU/URWClassico(0)/m/n' will be
+(Font)              scaled to size 10.00012pt on input line 141.
+LaTeX Font Info:    Calculating math sizes for size <10.00012> on input line 141.
+LaTeX Font Info:    Font shape `TU/URWClassico(0)/m/n' will be
+(Font)              scaled to size 7.00005pt on input line 141.
+ [7] [8]) (./Neutrino_Physics.tex [9
 
 ]
  2.
-) (./Project_outlook.tex [8
+) (./Project_outlook.tex [10
 
 ]
  3.
-) (./conclusions.tex [9
+) (./conclusions.tex [11
 
 ]
  4.
-) [10
+) [12
 
-] (./First_year_report.bbl [11
+] (./First_year_report.bbl [13
 
-]) [12] (./apendices.tex) [13
+]) [14] (./apendices.tex) [15
 
 ] (./First_year_report.aux)
  ***********
@@ -1421,19 +1427,19 @@ LaTeX Font Warning: Size substitutions with differences
 )
 
 Here is how much of LuaTeX's memory you used:
- 52087 strings out of 476447
+ 52204 strings out of 476447
  125016,2373549 words of node,token memory allocated
- 760 words of node memory still in use:
-   8 hlist, 2 vlist, 2 rule, 1 local_par, 6 glue, 4 kern, 1 penalty, 1 margin_kern, 3 glyph, 55 attribute, 62 glue_spec, 29 attribute_list, 2 write, 1 pdf_action nodes
-   avail lists: 1:11,2:1932,3:552,4:156,5:1617,6:55,7:6060,8:54,9:503,10:13,11:436
- 72547 multiletter control sequences out of 65536+600000
- 258 fonts using 15866375 bytes
- 113i,13n,119p,1065b,856s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 775 words of node memory still in use:
+   8 hlist, 2 vlist, 2 rule, 1 local_par, 8 glue, 5 kern, 1 penalty, 3 glyph, 57 attribute, 62 glue_spec, 30 attribute_list, 2 write nodes
+   avail lists: 1:11,2:1842,3:541,4:178,5:1629,6:68,7:6021,8:54,9:483,10:13,11:491
+ 72614 multiletter control sequences out of 65536+600000
+ 312 fonts using 19199935 bytes
+ 113i,13n,119p,1257b,856s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-BoldItalic.otf><c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-Regular.otf><c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-Italic.otf><c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-Bold.otf><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on First_year_report.pdf (20 pages, 1109896 bytes).
+Output written on First_year_report.pdf (22 pages, 1116035 bytes).
 
-PDF statistics: 361 PDF objects out of 1000 (max. 8388607)
- 307 compressed objects within 4 object streams
- 83 named destinations out of 1000 (max. 131072)
- 176 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 401 PDF objects out of 1000 (max. 8388607)
+ 345 compressed objects within 4 object streams
+ 91 named destinations out of 1000 (max. 131072)
+ 208 words of extra memory for PDF output out of 10000 (max. 100000000)
 

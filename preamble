@@ -19,6 +19,7 @@
 \usepackage{lipsum}
 \usepackage{eulervm} %fuente matematica
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usepackage{tikz}
 \usepackage{calc}
 \usepackage[compat=1.1.0]{tikz-feynman}
@@ -41,7 +42,7 @@
 % \usepackage{epsfig}
 \usepackage{indentfirst}
 \usepackage[pdfauthor={Marina Maneyro},
-pdftitle={},
+pdftitle={Quantum Computing for Neutrino Scattering},
 pdfsubject={},
 pdfkeywords={}]{hyperref} %referencias clickeables y metadata
 \hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black,linktoc=all}
