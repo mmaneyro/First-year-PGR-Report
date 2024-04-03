@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2024.3.12)  20 MAR 2024 13:14
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2024.3.12)  3 APR 2024 14:37
  restricted system commands enabled.
  file:line:error style messages enabled.
 **"c:/Users/mmaneyro/Downloads/First year PGR Report/First_year_report.tex"
@@ -1383,25 +1383,30 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.iii'
 ]
  1.
 LaTeX Font Info:    Font shape `TU/URWClassico(0)/m/n' will be
-(Font)              scaled to size 17.28003pt on input line 5.
-LaTeX Font Info:    Calculating math sizes for size <17.28003> on input line 5.
-) (./Neutrino_Physics.tex [2
+(Font)              scaled to size 17.28003pt on input line 11.
+LaTeX Font Info:    Calculating math sizes for size <17.28003> on input line 11.
+LaTeX Font Info:    Font shape `TU/URWClassico(0)/m/n' will be
+(Font)              scaled to size 14.39996pt on input line 12.
+LaTeX Font Info:    Calculating math sizes for size <14.39996> on input line 12.
+[2
+
+] [3] [4] [5] [6]) (./Neutrino_Physics.tex [7
 
 ]
  2.
-) (./Project_outlook.tex [3
+) (./Project_outlook.tex [8
 
 ]
  3.
-) (./conclusions.tex [4
+) (./conclusions.tex [9
 
 ]
  4.
-) [5
+) [10
 
-] (./First_year_report.bbl [6
+] (./First_year_report.bbl [11
 
-]) [7] (./apendices.tex) [8
+]) [12] (./apendices.tex) [13
 
 ] (./First_year_report.aux)
  ***********
@@ -1416,19 +1421,19 @@ LaTeX Font Warning: Size substitutions with differences
 )
 
 Here is how much of LuaTeX's memory you used:
- 51734 strings out of 476447
+ 52087 strings out of 476447
  125016,2373549 words of node,token memory allocated
- 643 words of node memory still in use:
-   8 hlist, 2 vlist, 2 rule, 1 local_par, 7 glue, 4 kern, 1 penalty, 3 glyph, 17 attribute, 62 glue_spec, 10 attribute_list, 2 write nodes
-   avail lists: 1:12,2:925,3:289,4:172,5:947,6:51,7:3451,8:4,9:270,10:5,11:137
- 72255 multiletter control sequences out of 65536+600000
- 197 fonts using 12108383 bytes
- 113i,11n,119p,1065b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-BoldItalic.otf><c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-Regular.otf><c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-Italic.otf><c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-Bold.otf><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb>
-Output written on First_year_report.pdf (15 pages, 1003472 bytes).
+ 760 words of node memory still in use:
+   8 hlist, 2 vlist, 2 rule, 1 local_par, 6 glue, 4 kern, 1 penalty, 1 margin_kern, 3 glyph, 55 attribute, 62 glue_spec, 29 attribute_list, 2 write, 1 pdf_action nodes
+   avail lists: 1:11,2:1932,3:552,4:156,5:1617,6:55,7:6060,8:54,9:503,10:13,11:436
+ 72547 multiletter control sequences out of 65536+600000
+ 258 fonts using 15866375 bytes
+ 113i,13n,119p,1065b,856s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-BoldItalic.otf><c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-Regular.otf><c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-Italic.otf><c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-Bold.otf><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on First_year_report.pdf (20 pages, 1109896 bytes).
 
-PDF statistics: 264 PDF objects out of 1000 (max. 8388607)
- 226 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 131072)
- 152 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 361 PDF objects out of 1000 (max. 8388607)
+ 307 compressed objects within 4 object streams
+ 83 named destinations out of 1000 (max. 131072)
+ 176 words of extra memory for PDF output out of 10000 (max. 100000000)
 

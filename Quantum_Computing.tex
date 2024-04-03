@@ -2,7 +2,141 @@
 
 \chapter{Quantum Computing}
  
+At a fundamental level, quantum computing is a discipline focused on developing hardware and software frameworks that leverage quantum mechanics to solve difficult problems. Whereas a classical computer uses information encrypted in elements called bits, taking values of 0 and 1, quantum computer elements can be in a superposition of states, and experience phenomena such as entanglement. The goal is to use quantum systems to solve computationally demanding problems more efficiently than the most powerful conventional computers. 
+
+It is also worth mentioning that the work needed to achieve this has and will likely continue to contribute to our understanding of quantum mechanics and the development of new techniques in superconductivity, control of quantum systems and more. Due to this, progress in the field is important beyond short- or intermediate-term applications.
+
+This chapter introduces the basic concepts behind quantum computing and provides a brief overview of the current state of the field. Afterward, the focus is on Quantum Error Correction, one of the main challenges behind this technology. Due to the nature of this project, the topics will be introduced from the well-known qubit-based perspective alongside the bosonic (quantum resonator-based) architectures.
+
 \section{Fundamentals}
+\subsection{The qubit and superposition}
+
+The building block of quantum computation is known as the qubit or quantum bit. This concept is analogous to the more familiar bit, the smallest binary element in a classical computer. To establish a quantum information framework, the qubit can be defined in abstract terms as a two-level quantum system with possible states $\ket{0}$ and $\ket{1}$. This is an apt description of a variety of physical elements that can be used to build real computing systems, such as electron spins, photon polarization or superconducting circuits.
+
+Due to its quantum mechanical nature, state $\ket{\psi}$ of a qubit is expressed as a superposition (linear combination) of states $\ket{0}$ and $\ket{1}$ as follows:
+\begin{equation}
+    \ket{\psi}=\alpha\ket{0}+\beta\ket{1}.
+\end{equation}
+Amplitudes $\alpha$ and $\beta$ are complex numbers obeying $|\alpha|^2+|\beta|^2 = 1$. It is possible to observe a bit and determine that its state is 0 or 1. In the case of a qubit in a superposition, an examination of its state gives less complete information. The outcome of the measurement will be $\ket{0}$ with probability $|\alpha|^2$ and $\ket{1}$ with probability $|\beta|^2$. Note that the properties of $\alpha$ and $\beta$ ensure that the probabilities of the states add up to unity.
+
+The length 1 qubit states can be represented in a Block sphere, parametrizing the whole continuum of qubit states.
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[scale=1.65]
+        \draw (0,0) circle (1.5);
+        \draw[dashed] (0,0) ellipse (1.5 and 0.5);
+        \draw[-latex] (0,0)--(2,0) node[label={[shift={(0.2,-0.35)}]$y$}]{};
+        \draw[-latex] (0,0)--(0,2) node[label={[shift={(0.2,-0.25)}]$z$}]{};
+        \draw[-latex] (0,0)--(-0.75,-0.75)node[label={[shift={(-0.2,-0.4)}]$x$}]{};
+        \node[label={[shift={(0.55,-0.25)}]$\ket{0}$}] at (0,1.46){\textbullet};
+        \node[label={[shift={(0.25,-1)}]$\ket{1}$}] at (0,-1.54){\textbullet};
+        \draw[-latex,NavyBlue,very thick] (0,0)--(0.65,1);
+        \node at (0,-0.01){\textbullet};
+        \draw[densely dotted](0.65,0.98)--++(0,-1.3)--(0,0);
+        \node[label={[shift={(0.45,-0.5)}]$\ket{\psi}$}] at (0.65,1){};
+        \draw[rotate=90] (0.65,0) arc (0:-33:0.65) node[midway,label={[shift={(0,-0.2)}]$\theta$}]{};
+        \draw[rotate=-135] (0.35,0) arc (0:110:0.35) node[midway,label={[shift={(-0.1,-0.2)}]$\phi$}]{};
+
+        
+    \end{tikzpicture}
+    \caption{Bloch sphere representation of an arbitrary qubit state (blue). Note how the orthogonal basis states $\ket{0}$ and $\ket{1}$ are shown as diametrically opposite.}
+    \end{figure}
+In the Bloch sphere, qubit states are represented in three-dimensional space in terms of two real parameters $\theta$ and $\phi$:
+\begin{equation}
+    \ket{\psi} =\cos \left(\theta /2\right)\ket{0} \,+\,e^{i\phi }\sin \left(\theta /2\right)\ket{1},
+\end{equation}
+with $0\leq \theta \leq \pi$ and $0\leq \phi \leq 2\pi$. Although at first glance it would appear there is an infinite amount of states that can be represented within a qubit. This however doesn't imply that an infinite amount of information can be encoded within it. Due to the quantum measurement phenomenon known as state \textit{collapse}, the outcome of qubit measurement will be either 0 or 1, providing one bit's worth of information. In fact, an exact determination of the parameters in a qubit state would require measuring an infinite number of identical qubits. At the same time, the properties of unmeasured qubits are essential to the power of quantum processing.
+
+\subsection{Composite systems and entanglement}
+
+Much in the same way as in classical computation, to carry out useful computations, several information units are needed. Therefore, it is essential to discuss how different qubits will interact with each other. When introducing a second qubit, the set of basis states will contain four elements, spanning all state combinations for both qubits: $\ket{00}$, $\ket{01}$, $\ket{10}$, and $\ket{11}$. The general state of the two-qubit system can be expressed as a superposition of the basis states, given by four complex amplitudes.
+\begin{equation}
+    \ket{\psi} = \alpha_{00}\ \ket{00}\ +\ \alpha_{01}\ \ket{01}\ + \ \alpha_{10}\ \ket{10}\ +\ \alpha_{11}\ \ket{11}
+\end{equation}
+Once more the squared norms of the amplitudes will represent the probability of measuring each state. Consequently, the state must be normalized according to $\sum_i |\alpha_i|^2 = 1$, for $i$ spanning all basis states. A measurement of this system could be applied to only one of the qubits, with a post-measurement superposition state conditioned on this outcome. For example, the first qubit will be measured at state $\ket{0}$ with probability $|\alpha_{00}|^2 + |\alpha_{01}|^2$. After obtaining this result, the system will be left in a normalized superposition of states $\ket{00}$ and $\ket{01}$.
+
+An essential quantum behaviour that emerges when working with multiple qubits is the entanglement property, as best illustrated by Bell states (also known as Einstein-Podolsky-Rosen pairs). Consider the following superposition:
+\begin{equation}
+    \psi = \cfrac{\ket{00}\ +\ \ket{11}}{\sqrt{2}}.
+\end{equation}
+If the first qubit in this composite state is measured, the outcome will be $\ket{0}$ or $\ket{1}$ with respective probabilities of $1/2$. What is most interesting is what our measurement tells us about the state of the system overall. If the first qubit is in state $\ket{0}$ ($\ket{1}$), after measurement the system must be in state $\ket{00}$ ($\ket{11}$). Therefore, there is only one possible state the second qubit is allowed to be in, and gaining this information did not require performing a direct measurement. This shows how quantum elements can be correlated beyond what is possible for a purely classical system, and this property will be the basis of useful methods within the discipline of quantum computing. 
+
+While discussing multi-qubit systems it is worth noting that for an $n$-state system, the basis states are simply a generalization of what has been discussed for the two-qubit case. It will once again be given by all possible combinations of qubit states. As a consequence the total number of encoded states grows quickly as $2^n$, achieving very high state numbers with qubit numbers in the hundreds. Due to the probabilistic nature of the qubits, it is possible to work with large amounts of quantum numbers simultaneously, far beyond what can be encoded classically.
+
+So far, this section has focused on qubits as the essential units for quantum information. For the purpose of computation, however, the information must be manipulated as per the end goal. The next subsection discusses the gate operations that make this possible.
+
+
+\subsection{Quantum logic gates}
+
+In order to perform computations, bits and qubits, are used as part of computer circuits, in which information gets converted and transmitted. The operations to be applied can be as simple as the classical $NOT$ gate, which flips the value of a bit. If the bit is in state 0 it is changed to state 1, and vice versa. Logic gates can of course be more elaborate, for example, taking into account more than one bit.
+
+Naturally, one must think of what gates must look like in quantum computers, taking into account knowledge of qubit states and quantum mechanics. The first key difference between a bit and a qubit is that the latter involves a linear combination of basis states. Therefore, a quantum logic gate needs to be able to act on this superposition state. To be compatible with quantum mechanics, and maintain the sense of probability, a quantum $NOT$ gate needs to be a linear operation.
+
+Quantum logic gates are commonly expressed as matrices in the state basis. For the quantum $NOT$ case, the matrix representation is:
+\begin{equation}
+    X \equiv \begin{bmatrix}
+    0&1\\
+    1&0
+    \end{bmatrix},
+\end{equation}
+where the first column and row correspond to state $\ket{0}$ and the second to state $\ket{1}$. Likewise, the qubit state can be represented as a vector in this basis:
+\begin{equation}
+    \ket{\psi}=\begin{bmatrix}
+    \alpha\\
+    \beta
+    \end{bmatrix}.
+\end{equation}
+Then the quantum $NOT$ gate acts on the qubit as:
+\begin{equation}
+    X\ket{\psi} = \begin{bmatrix}
+        \beta\\
+        \alpha
+        \end{bmatrix},
+\end{equation}
+flipping the amplitudes associated with each basis state.
+
+Linearity is not the only property of quantum mechanical systems that must be reflected in quantum logical gates. As was mentioned previously, the probabilistic nature of qubits requires states to be normalized. This must be true before and after a logic operation is applied to the qubit (probability must be conserved). Therefore, any $2\times 2$ matrix $U$ associated with a quantum gate must be unitary, obeying
+\begin{equation}
+    U^\dagger U = I,
+\end{equation}
+where $I$ is the $2\times 2$ identity operator.
+
+These properties of linearity and unitarity generalize for gates acting on multiple qubits. One useful example of this is the two-qubit CNOT gate (also known as controlled $NOT$):
+\begin{equation}
+    CNOT=\begin{bmatrix}
+        1&0&0&0\\
+        0&1&0&0\\		 		
+        0&0&0&1\\
+        0&0&1&0\\
+    \end{bmatrix}
+\end{equation}
+This gate performs a $NOT$ operation on the second qubit, as conditioned by the state of the first qubit (which is left unchanged). The effect of this gate is summarized in the following table:
+\begin{table}
+    \centering
+\begin{tabular}{l | c }
+    IN & OUT\\
+    \hline \hline
+    $\ket{00}$ & $\ket{00}$ \\ 
+    $\ket{01}$ & $\ket{01}$\\
+    $\ket{10}$ & $\ket{11}$\\
+    $\ket{11}$ & $\ket{10}$
+\end{tabular}
+\end{table}
+The equivalency between the $CNOT$ gate and a classical counterpart is not as direct as what can be drawn between the classical and quantum $NOT$ operations. This is due to yet another useful property stemming from the quantum nature. Quantum logical gate representations are always invertible, meaning that their effect is reversible. Meanwhile, the classical analog to the $CNOT$ operation ($XOR$ gate) loses information, and therefore the state before its application cannot be recovered.
+
+Another factor of note regarding the $CNOT$ gate is that it can be used to prepare entangled states, such as the aforementioned Bell states. It is worth mentioning as well, that the conditional action based on the state of the first qubit does not cause a collapse of the superposition state, making the $CNOT$ gate an extremely powerful tool. In fact, it has been proven that the use of $CNOT$ gates alongside the set of single-qubit rotations is sufficient to perform any operation (on any number of qubits). This is known as universality, and can theoretically be realized to arbitrary accuracy.
+
+
+
+
+
+
+
+
+
+
+\clearpage
+
 Qubits, NISQ overview: \cite{Nielsen2010} \cite{Preskill2018} \cite{IBMintro} \cite{Kaye2007} \cite{Cleve2021}. Expected applications (brief)
 
 Different hardware approaches (brief): \cite{Dwave} \cite{Zurich} \cite{IBMtec}
