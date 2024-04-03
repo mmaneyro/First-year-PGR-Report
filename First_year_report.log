@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2024.3.12)  3 APR 2024 20:26
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2024.3.12)  3 APR 2024 20:36
  restricted system commands enabled.
  file:line:error style messages enabled.
 **"c:/Users/mmaneyro/Downloads/First year PGR Report/First_year_report.tex"
@@ -1434,9 +1434,9 @@ Here is how much of LuaTeX's memory you used:
    avail lists: 1:11,2:1842,3:541,4:178,5:1629,6:68,7:6021,8:54,9:483,10:13,11:491
  72614 multiletter control sequences out of 65536+600000
  312 fonts using 19199935 bytes
- 113i,13n,119p,1257b,856s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,13n,119p,1258b,856s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-BoldItalic.otf><c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-Regular.otf><c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-Italic.otf><c:/texlive/2023/texmf-dist/fonts/opentype/urw/classico/URWClassico-Bold.otf><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on First_year_report.pdf (22 pages, 1116035 bytes).
+Output written on First_year_report.pdf (22 pages, 1116066 bytes).
 
 PDF statistics: 401 PDF objects out of 1000 (max. 8388607)
  345 compressed objects within 4 object streams
