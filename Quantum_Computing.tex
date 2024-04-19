@@ -144,21 +144,85 @@ The basic ideas behind Quantum Error Correction, along with some examples, will 
 
 \subsection{Hardware approaches}
 
+As was described in the previous subsection, the quantum computing framework can be carried out through different physical systems. These include, for example, superconducting qubits, trapped ions, and photonics. The following descriptions do not aim to provide a comprehensive overview of each hardware architecture, and instead hope to provide a more grounded idea of how quantum computing is carried out. As will be described, each hardware implementation presents a set of limitations that need to be addressed to develop usable quantum computers. At the same time, each of them can also provide unique advantages and can be worked with from different conceptual points of view. 
+
+Perhaps the best-known type of quantum hardware is based on superconducting qubits. These systems build qubits from Josephson junctions, formed by two superconducting elements separated by a fine insulator layer. Due to the Josephson effect, this junction will allow a current between the superconductors, enabled by \textit{quantum tunnelling}\footnote{Quantum tunnelling is a quantum mechanical effect that allows particles to go through barriers (such as the walls of a potential well), despite their energy being lower than that needed to surmount them according to classical physics.}, thus displaying a quantum effect at a macroscopic scale. The logical qubit states $\ket{0}$ and $\ket{1}$ can be mapped to different physical states of the superconducting components, such as discrete energy levels. The elements are then arranged into a circuit. 
+
+In order to manipulate these superconducting circuits to perform computations it is necessary to construct reliable control operations. In the case of superconducting qubits, microwave pulses can be administered to execute single-qubit or multiple-qubit gate operations. The control and readout of the superconducting qubits are carried out using classical computers, that are already built for user interfacing.
+
+Due to their superconducting nature, these systems need to be maintained at cryogenic temperatures to prevent decoherence. The cabling linking circuit elements and aspects such as qubit readout also need to be optimized to minimize incidences of errors and allow for the scalability of the systems. In other words, technical advances in hardware development are essential to building quantum computers with larger qubit numbers that can execute more gate operations, while avoiding the exponential increase of errors. Some of the companies focused on this task are Rigetti, IBM, and Google.
+
+Computation using superconducting qubits does not always rely on gate operations. This is the case in quantum annealers, such as those developed by D-wave. These systems apply magnetic fields to superconducting qubits that can manipulate the probability of a qubit being in each state (bias). Lattice configurations are assembled for these qubits, establishing couplings between them with arbitrary correlation weights. A user choice of qubit biases and couplings can be used to solve optimization-type problems. The annealing process consists of slowly evolving the system from a ground state of unbiased and uncorrelated qubits into the ground state of the problem that the user desires to solve.
+
+A classic case of an optimization problem is that of the travelling salesman. The goal of the problem is to find the shortest route for the traveller between a set of towns. Although coming up with a classical algorithm to solve this problem is straightforward (simply calculate distances for all possible paths and compare), its computational cost increases exponentially with the number of towns. Thus, the problem cannot be solved by classical computers for non-trivial cases (although heuristic solutions exist which provide approximate solutions for some more complex cases).
+
+This is the type of problem that could benefit from a quantum annealing-based computer. In this case, the correlations between qubits represent the distances between the cities. Meanwhile, the qubit states contain the information on whether a town was (or wasn't) visited in a sequence step. The total system energy for a given state is associated with the distance traversed by the traveller if the towns were visited in that particular order. Thus, the ground state provided by an annealer will correspond to the desired solution, the optimal path. It is worth noting that this approach is also liable to qubit decoherence, as well as other sources of error. Furthermore, the annealing process can be heuristically transposed into gate-based quantum computers to address optimization problems.
+
+A third type of quantum computer is the bosonic system. This dispenses with the focus on two-level qubits. Instead, bosonic computing's basic unit is the qudit, which can have N levels. In physical terms, a qudit is implemented using a quantum harmonic oscillator, and assigning a logical state to each of its accessible energy levels. Quantum oscillator systems can be built using Superconducting radio-frequency (SRF) cavities, which have very low rates of dissipation and are therefore well equipped to maintain state coherence. 
+
+The ability to encode a higher number of states within one single hardware element is key to implementing Quantum Error Correction procedures without introducing new sources of noise. The possible errors in a resonant cavity are linked to photon loss, which is easy to detect and correct. These advantages have turned bosonic platforms into an area of high interest and expectation. As bosonic quantum computing is a focus of this PhD, a further section will be dedicated entirely to this particular topic.
+
+
 \section{Bosonic Systems}
+\textcolor{red}{Reassess whether this is better off here or after the section on Quantum Error Correction.}
+
+\vspace{5cm}
+Qubits, NISQ overview: \cite{Nielsen2010} \cite{Preskill2018} \cite{IBMintro} \cite{Kaye2007} \cite{Cleve2021}. 
+Expected applications (brief), perhaps better suited to the intro section?
+
+Different hardware approaches (brief): \cite{Dwave} \cite{Zurich} \cite{IBMtec}
+
+Bosonic systems: \cite{Zurich} \cite{Girvin2021}, cQED
+
+\clearpage
+\section{Quantum Error Correction}
+
+As was established in prior sections, quantum computers are susceptible to environmental noise which jeopardizes the coherent states containing information. The field of error correction is well-established for classical computers. However, classical corrections algorithms cannot simply be applied to quantum systems. Qubits, unlike bits, are limited by the no-cloning theorem, stating that it is not possible to make independent, perfect copies of a qubit's state. There is also the problem of quantum measurement and wavefunction collapse. Despite this, Quantum Error Correction (QEC) is a productive field of study, and many viable approaches to error mitigation have been proposed. The following section aims to introduce the fundamental ideas behind QEC at the qubit level and the bosonic level, alongside some example implementations.
+
+\subsection{Introduction to Error Correction}
+
+One of the basic ideas behind error correction is that of redundancy. In simple terms, it consists of using a higher number of bits (or qubits) to encode one bit (or qubit) of information. A simple illustrative example is that of the classical repetition code. Instead of just utilizing one bit with possible values of 0 and 1, one can define logical codewords. These logical codewords are strings of multiple bits, mapped to logical states 0 and 1. For the three-bit repetition code, codeword '000' (three bits in state 0) corresponds to logical state 0, while codeword '111' does to logical 1. 
+
+In classical computing, there is only one possible error, known as bit flip. A bit flip occurs when a bit in 0 gets mapped to 1, or vice versa. When transmitting the logical states, the receiver could get '100', '010' or '001' instead of codeword 0, assuming only one bit flip occurs. This error can easily be remedied using \textit{majority voting}. Simply put, if most of the bits take value 0, the 1-valued bits are assumed to have flipped, and the error can be rectified. 
+
+If two bits happen to flip, the error can be detected, as the transmitted bit string does not match either codeword. However, this error cannot be corrected using majority voting, and the received logical bit will be incorrect. If three errors occur, the situation is even more dire, as the resulting state is still a valid codeword, and the error cannot be detected, much less rectified. This does not mean that the three-bit repetition code (despite being inefficient) is unable to provide any improvement. Error correction is based on the assumption that hardware performs well enough that errors are rare. Thus the goal is not to provide ideal error correction, but to further reduce the already low incidence of errors. In the case of the three-bit repetition code, low error probabilities mean that uncorrectable errors (two or three bit-flips) are significantly less likely than the correctable single bit-flip. Likewise, undetectable errors are the least likely to occur. 
+
+It is worth noting that some tools to address errors can be designed with only detection (and not correction) in mind. For example, for an arbitrary bit string, an additional bit can be implemented to record the string (plus ancilla) parity. This is achieved by mapping even and odd parity to 0 and 1. If at a later stage the parity of the new bit string is odd, an odd number of bit-flips must have occurred. The exact details of the errors cannot be obtained from the bit string, but the string is known to be corrupted. Given that the incidence of no-flip and one bit-flip events is much higher than that of two bit-flips (where parity is indistinguishable from the errorless case), it is reasonable to assume that an even parity implies that no bit has flipped. Likewise, it is to be expected that an odd parity was caused by one single error.
+
+When adding ancilla bits, it is important to consider that the error rate is a priori increased. Consider once again the repetition code. If each bit in a certain hardware system is known to have a probability of error $\epsilon$, the probability of having no errors on a bit is: \begin{equation}
+    P_0=1-\epsilon.
+\end{equation}.
+Once the ancillae are introduced, this becomes:
+\begin{equation}
+    P_0=(1-\epsilon)^3.
+\end{equation} 
+Therefore, the probability of at least one error occurring is 
+\begin{equation}
+    1-P_0 \sim 3\epsilon,
+\end{equation} 
+tripling that of the single bit (in the small $\epsilon$ limit). Thus, a successful error correction code must surpass the break-even point: the logical (error-corrected) bit error rate must be lower than for the physical bit. 
+
+Consider the break-even point for the repetition code. The logical bit error rate is given by the probability of running into an uncorrectable error (having two or three bit-flips). This can be expressed as:
+\begin{equation}
+    \epsilon_{logical} = P_2 + P_3 = 3\epsilon^2 - 2\epsilon^3.
+\end{equation}
+Probabilities $P_2$ and $P_3$ correspond to the two and three bit-flip cases respectively. For this case their values are $P_2 = 3\epsilon^2(1-\epsilon)$ and $P_3 = \epsilon^3$.
+
+The breakeven point equation $\epsilon_{logical}=\epsilon$ shows that the repetition code will reduce error occurrences for physical bit error rates below $1/2$. The form of $\epsilon_{logical}$ also shows that, as expected, logical bit error rates decrease with physical bit error rates.
+
+It is worth noting that introducing error correction for bit flips does not provide complete fault tolerance, as more realistic error models need to take into account errors introduced when other system elements fail. This includes accounting for possible errors in the error-correction circuitry itself or errors attributed to the process of measuring bit states. For example, a realistic logic gate will have some chance of failing when used. The goal is to design error correction circuits that only incur errors that it can detect and correct in its subsequent applications.
+This also affects the frequency at which the correction process must be applied.
+
+If there is a certain probability of each bit in the system flipping in a given time interval, a repetition-code-based correction scheme needs to be applied before the probability of uncorrectable errors becomes too large. However, if the correction code is applied too often, there is a risk of having error correction circuit errors (such as incorrect majority voting). Near-perfect correction circuits should enable fault tolerance through speedy circuit implementations. However, realistically, the delay between operations will be affected by the take to execute.
+
+Having discussed some of the basic concepts and motivations when performing error correction, let us move on to applications to qubit-based systems.
 
 
-
+\subsection{Error correction for qubit systems}
 
 
 \clearpage
 
-Qubits, NISQ overview: \cite{Nielsen2010} \cite{Preskill2018} \cite{IBMintro} \cite{Kaye2007} \cite{Cleve2021}. Expected applications (brief)
-
-Different hardware approaches (brief): \cite{Dwave} \cite{Zurich} \cite{IBMtec}
-
-Bosonic systems: \cite{Zurich} \cite{Girvin2021}
-
-\section{Quantum Error Correction}
 General \cite{Girvin2021} \cite{Andersen2020} \cite{Gottesman2009} \cite{Roffe2019} \cite{devitt}
 
 Specific Implementations \cite{Krinner2021} \cite{Chen2021} \cite{cleland2022}

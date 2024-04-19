@@ -39,7 +39,6 @@
 \usepackage{multirow}
 \usepackage{caption}
 \usepackage{microtype}
-% \usepackage{epsfig}
 \usepackage{indentfirst}
 \usepackage[pdfauthor={Marina Maneyro},
 pdftitle={Quantum Computing for Neutrino Scattering},
