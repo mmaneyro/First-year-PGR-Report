@@ -47,4 +47,5 @@ pdfkeywords={}]{hyperref} %referencias clickeables y metadata
 \hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black,linktoc=all}
 \usepackage{cite}
 \usepackage{bookmark}
+\usepackage{quantikz}
 

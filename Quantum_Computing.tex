@@ -39,6 +39,7 @@ The length 1 qubit states can be represented in a Block sphere, parametrizing th
 
     \end{tikzpicture}
     \caption[Bloch sphere representation of a qubit state]{Bloch sphere representation of an arbitrary qubit state (blue). Note how the orthogonal basis states $\ket{0}$ and $\ket{1}$ are shown as diametrically opposite.}
+    \label{fig:bloch_sphere}
     \end{figure}
 In the Bloch sphere, qubit states are represented in three-dimensional space in terms of two real parameters $\theta$ and $\phi$:
 \begin{equation}
@@ -138,7 +139,7 @@ The first challenge is noise. Even within the context of classical computing, th
 
 Another way of approaching noise mitigation is implementing error correction algorithms, which can identify and rectify issues that arise. Executing these algorithms, however, necessitates using more qubits in a given calculation. This leads to the second challenge of the NISQ era: the intermediate scale. This refers to the size of the quantum systems that can actually be realized in hardware. The size or volume is thought of in terms of qubit number and number of applied gates. In a circuit comprised of qubits with some probability of failure, the probability of having some error increases with the qubit number. Likewise, whenever a gate is applied there is some probability an error will be caused, so the overall probability of error increases the more we operate on the system.
 
-Recent work by several companies (such as IBM, Rigetti, and Google) has enabled great strides in the number of qubits of current quantum systems, which in the last few years has jumped from below 50 to around 1000 qubits. In the short and intermediate term there is still plenty of work to be done to not only allow for the increase of this number, but also ensure higher coherence times, more accurate gate operations, and more efficient error correction algorithms. These are some of the elements that will come into play in the development of fault-tolerant\footnote{Fault tolerant systems can continue functioning adequately even if some errors or partial failures are present.} quantum computers and the achievement of quantum advantage\footnote{Quantum advantage refers to conclusively proving that a quantum computer can solve a problem that no classical computer can solve within a reasonable timeframe. Computationally complex problems can often be theoretically computable classically, however, due to exponentially increasing timeframes may only be achieved at time scales beyond human interest.}.
+Recent work by several companies (such as IBM, Rigetti, and Google) has enabled great strides in the number of qubits of current quantum systems, which in the last few years has jumped from below 50 to around 1000 qubits. In the short and intermediate term, there is still plenty of work to be done to not only allow for the increase of this number, but also ensure higher coherence times, more accurate gate operations, and more efficient error correction algorithms. These are some of the elements that will come into play in the development of fault-tolerant\footnote{Fault tolerant systems can continue functioning adequately even if some errors or partial failures are present.} quantum computers and the achievement of quantum advantage\footnote{Quantum advantage refers to conclusively proving that a quantum computer can solve a problem that no classical computer can solve within a reasonable timeframe. Computationally complex problems can often be theoretically computable classically, however, due to exponentially increasing timeframes may only be achieved at time scales beyond human interest.}.
 
 The basic ideas behind Quantum Error Correction, along with some examples, will be addressed in a later chapter. The next subsection provides an overview of some of the physical systems that are currently used as quantum hardware.
 
@@ -154,7 +155,7 @@ Due to their superconducting nature, these systems need to be maintained at cryo
 
 Computation using superconducting qubits does not always rely on gate operations. This is the case in quantum annealers, such as those developed by D-wave. These systems apply magnetic fields to superconducting qubits that can manipulate the probability of a qubit being in each state (bias). Lattice configurations are assembled for these qubits, establishing couplings between them with arbitrary correlation weights. A user choice of qubit biases and couplings can be used to solve optimization-type problems. The annealing process consists of slowly evolving the system from a ground state of unbiased and uncorrelated qubits into the ground state of the problem that the user desires to solve.
 
-A classic case of an optimization problem is that of the travelling salesman. The goal of the problem is to find the shortest route for the traveller between a set of towns. Although coming up with a classical algorithm to solve this problem is straightforward (simply calculate distances for all possible paths and compare), its computational cost increases exponentially with the number of towns. Thus, the problem cannot be solved by classical computers for non-trivial cases (although heuristic solutions exist which provide approximate solutions for some more complex cases).
+A classic case of an optimization problem is that of the travelling salesman. The goal of the problem is to find the shortest route for the traveller between a set of towns. Although coming up with a classical algorithm to solve this problem is straightforward (simply calculate distances for all possible paths and compare), its computational cost increases exponentially with the number of towns. Thus, the problem cannot be solved by classical computers for non-trivial cases (although heuristic solutions exist that provide approximate solutions for some more complex cases).
 
 This is the type of problem that could benefit from a quantum annealing-based computer. In this case, the correlations between qubits represent the distances between the cities. Meanwhile, the qubit states contain the information on whether a town was (or wasn't) visited in a sequence step. The total system energy for a given state is associated with the distance traversed by the traveller if the towns were visited in that particular order. Thus, the ground state provided by an annealer will correspond to the desired solution, the optimal path. It is worth noting that this approach is also liable to qubit decoherence, as well as other sources of error. Furthermore, the annealing process can be heuristically transposed into gate-based quantum computers to address optimization problems.
 
@@ -185,7 +186,7 @@ One of the basic ideas behind error correction is that of redundancy. In simple 
 
 In classical computing, there is only one possible error, known as bit flip. A bit flip occurs when a bit in 0 gets mapped to 1, or vice versa. When transmitting the logical states, the receiver could get '100', '010' or '001' instead of codeword 0, assuming only one bit flip occurs. This error can easily be remedied using \textit{majority voting}. Simply put, if most of the bits take value 0, the 1-valued bits are assumed to have flipped, and the error can be rectified. 
 
-If two bits happen to flip, the error can be detected, as the transmitted bit string does not match either codeword. However, this error cannot be corrected using majority voting, and the received logical bit will be incorrect. If three errors occur, the situation is even more dire, as the resulting state is still a valid codeword, and the error cannot be detected, much less rectified. This does not mean that the three-bit repetition code (despite being inefficient) is unable to provide any improvement. Error correction is based on the assumption that hardware performs well enough that errors are rare. Thus the goal is not to provide ideal error correction, but to further reduce the already low incidence of errors. In the case of the three-bit repetition code, low error probabilities mean that uncorrectable errors (two or three bit-flips) are significantly less likely than the correctable single bit-flip. Likewise, undetectable errors are the least likely to occur. 
+If two bits happen to flip, the error can be detected, as the transmitted bit string does not match either codeword. However, this error cannot be corrected using majority voting, and the received logical bit will be incorrect. If three errors occur, the situation is even more dire, as the resulting state is still a valid codeword, and the error cannot be detected, much less rectified. This does not mean that the three-bit repetition code (despite being inefficient) is unable to provide any improvement. Error correction is based on the assumption that hardware performs well enough that errors are rare. Thus the goal is not to provide ideal error correction but to further reduce the already low incidence of errors. In the case of the three-bit repetition code, low error probabilities mean that uncorrectable errors (two or three bit-flips) are significantly less likely than the correctable single bit-flip. Likewise, undetectable errors are the least likely to occur. 
 
 It is worth noting that some tools to address errors can be designed with only detection (and not correction) in mind. For example, for an arbitrary bit string, an additional bit can be implemented to record the string (plus ancilla) parity. This is achieved by mapping even and odd parity to 0 and 1. If at a later stage the parity of the new bit string is odd, an odd number of bit-flips must have occurred. The exact details of the errors cannot be obtained from the bit string, but the string is known to be corrupted. Given that the incidence of no-flip and one bit-flip events is much higher than that of two bit-flips (where parity is indistinguishable from the errorless case), it is reasonable to assume that an even parity implies that no bit has flipped. Likewise, it is to be expected that an odd parity was caused by one single error.
 
@@ -206,9 +207,9 @@ Consider the break-even point for the repetition code. The logical bit error rat
 \begin{equation}
     \epsilon_{logical} = P_2 + P_3 = 3\epsilon^2 - 2\epsilon^3.
 \end{equation}
-Probabilities $P_2$ and $P_3$ correspond to the two and three bit-flip cases respectively. For this case their values are $P_2 = 3\epsilon^2(1-\epsilon)$ and $P_3 = \epsilon^3$.
+Probabilities $P_2$ and $P_3$ correspond to the two and three-bit-flip cases respectively. For this case their values are $P_2 = 3\epsilon^2(1-\epsilon)$ and $P_3 = \epsilon^3$.
 
-The breakeven point equation $\epsilon_{logical}=\epsilon$ shows that the repetition code will reduce error occurrences for physical bit error rates below $1/2$. The form of $\epsilon_{logical}$ also shows that, as expected, logical bit error rates decrease with physical bit error rates.
+The breakeven point equation $\epsilon_{logical}=\epsilon$ shows that the repetition code will reduce error occurrences for physical bit error rates below $1/2$. For error rates above this, the code application will in actuality be detrimental. The form of $\epsilon_{logical}$ also shows that, as expected, logical bit error rates decrease with physical bit error rates.
 
 It is worth noting that introducing error correction for bit flips does not provide complete fault tolerance, as more realistic error models need to take into account errors introduced when other system elements fail. This includes accounting for possible errors in the error-correction circuitry itself or errors attributed to the process of measuring bit states. For example, a realistic logic gate will have some chance of failing when used. The goal is to design error correction circuits that only incur errors that it can detect and correct in its subsequent applications.
 This also affects the frequency at which the correction process must be applied.
@@ -219,6 +220,98 @@ Having discussed some of the basic concepts and motivations when performing erro
 
 
 \subsection{Error correction for qubit systems}
+
+As was described in the first section, qubit states exist within the continuum of all states in the Bloch sphere. Consequently, a clear difference between bit and qubit errors will stem from the multiplicity of error types in the latter case. A qubit can experience coherent errors taking it into any other of the infinite possible states, rather than just being shifted from 0 to 1.
+
+A coherent error acting on a qubit can be expressed in terms of a unitary operation\footnote{An error could also be non-unitary due to entanglement with a bath and wavefunction collapse.}, just like quantum logical gates. The unitary operator $U(\delta\theta,\delta\phi)$ represents the evolution of the quantum state as it shifts to coordinates $\theta+\delta\theta$ and $\phi+\delta\phi$ in the Bloch sphere space. It can be expressed mathematically as:
+\begin{equation}
+    U(\delta\theta,\delta\phi)\ket{\psi} = \cos\frac{\theta+\delta\theta}{2}\ket{0}+e^{i(\phi+\delta\phi)}\sin\frac{\theta+\delta\theta}{2}\ket{1}.
+\end{equation}
+
+At first glance, it would seem impossible to address all the arbitrary errors that could take place in any given qubit. However, the problem is simplified by considering that the error operator can be expressed as an expansion in the Pauli basis. For two-dimensional matrices this is given by:
+\begin{equation}
+    I=\begin{bmatrix}
+        1&0\\
+        0&1
+    \end{bmatrix},\quad
+    X=\begin{bmatrix}
+        0&1\\
+        1&0
+    \end{bmatrix}, \quad
+    Y=\begin{bmatrix}
+        0&-i\\
+        i&0
+    \end{bmatrix},\quad
+    Z=\begin{bmatrix}
+        1&0\\
+        0&-1
+    \end{bmatrix}.
+\end{equation}
+Then, the single-qubit error operation can be expanded as:
+\begin{equation}
+    U(\delta\theta,\delta\phi)\ket{\psi}=\alpha_I I\ket{\psi} + \alpha_X X\ket{\psi} + \alpha_Y Y\ket{\psi} + \alpha_Z Z\ket{\psi},
+\end{equation}
+for $\alpha_i$ representing expansion coefficients. This way, any coherent error can be decomposed as a combination of four operations. The ability to correct Pauli-X and Pauli-Z errors will be enough to perform any correction. This is because Pauli Y can be expressed as $Y=XZ$. 
+
+An error described by Pauli matrix $X$ is analogous to a classical bit-flip error. Its action on the generic qubit state is:
+\begin{equation}
+    X\ket{\psi}=\alpha X\ket{0}+\beta X\ket{1} = \alpha \ket{1}+\beta \ket{0}.
+\end{equation}
+On the other hand, an error caused by the Z matrix is known as a phase-flip error and has no classical equivalent. The operation leaves the $\ket{0}$ state unchanged, while mapping state $\ket{1}$ to $-\ket{1}$. The effect on an arbitrary qubit state is as follows:
+\begin{equation}
+    Z\ket{\psi}=\alpha Z\ket{0}+\beta Z\ket{1} = \alpha \ket{0} -\beta \ket{1}.
+\end{equation}
+This is equivalent to a $180^\circ$ rotation around the $z$-axis on the Block sphere shown in Figure \ref{fig:bloch_sphere}.
+
+As was mentioned previously, there is a key difference between classical and quantum error correction, beyond the introduction of the phase-flip. Due to the no-cloning theorem, quantum error correction codes cannot rely on making perfect copies of the qubit state. For the repetition code example, it was shown that the physical bit state was applied to two ancilla bits to form logical codewords '000' and '111'. This cannot be replicated for a qubit. A further limitation stems from the wavefunction collapse that can be triggered when a state measurement is applied. Thus, QEC constitutes a framework going beyond the tools of classical computing, as will be subsequently shown.
+
+\subsubsection{A simple two-qubit code}
+
+Let us now begin to visualize the strategies of QEC through an elementary example. The goal of the code is to detect bit flips on a single qubit. As in the classical case, it is necessary to increase the amount of information that is being stored, beyond that contained on the qubit. Consider the introduction of a second qubit. In order to provide redundancy, this ancillary qubit must reflect the state of the first one. However, as discussed, it is not possible to simply make a copy of the initial qubit or measure it and obtain complete state information. Logical states can be obtained by an encoding procedure entangling the qubits, with the following outcome:
+\begin{equation}
+    \ket{\psi}= \alpha \ket{0} +\beta \ket{1} \quad \rightarrow \quad \ket{\psi}_L = \alpha \ket{00} +\beta \ket{11}=\alpha \ket{0}_L +\beta \ket{1}_L
+\end{equation}
+The encoding is straightforward to achieve by implementing a CNOT gate as shown in Figure \ref{fig:two_qub_enc}, requiring no knowledge of the qubit state.
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \node[scale=1.25] {
+    \begin{quantikz}
+        \lstick{$\scriptstyle\ket{\psi}$} & \ctrl{1} & \rstick[2]{$\scriptstyle\ket{\psi}_L$}\\
+        \lstick{$\scriptstyle\ket{0}$}& \targ{} &
+    \end{quantikz}};
+    \end{tikzpicture}
+    \caption{CNOT gate encoding circuit to implement two-qubit bit-flip detection.}
+    \label{fig:two_qub_enc}
+\end{figure}
+Qubit state information has now been distributed into the 4-dimensional Hilbert space spanning states $\ket{00}$, $\ket{01}$, $\ket{10}$, and $\ket{11}$. The subset of Hilbert space comprised by $\ket{00}$ and $\ket{11}$ is known as \textit{codespace}, and it corresponds to the non-bit-flipped states. If the logical state experiences a bit-flip error, such as
+\begin{equation}
+    X_1\ket{\psi}_L = \alpha\ket{10} + \beta\ket{01}
+\end{equation}
+for $X_1$ representing a flip on the first qubit, it will be rotated into the \textit{error} subspace. Error space is orthogonal to codespace. Due to this, projective measurements can be carried out to distinguish between error space and codespace states without compromising qubit encoding. The projective measurements used to identify the bit flips are known as \textit{stabilizers}. The term references the fact that these operations leave logical states unchanged. 
+
+In this case, the stabilizer operation is $Z_1Z_2$, where $Z_1$ and $Z_2$ refer to Pauli Z operations on qubits 1 and 2, respectively. This is essentially a generalization of the $Z$ gate to the logical state (rather than a single qubit). It is straightforward to verify that the logical state $\ket{\psi}_L$ is an eigenstate of the stabilizer with eigenvalue $+1$. Meanwhile, bit flipped states $X_1\ket{\psi}_L$ $X_1\ket{\psi}_L$ are eigenvalue $-1$ eigenstates of $Z_1Z_2$. The operation is essentially a joint parity operation, identifying whether both qubits are in the same state. Therefore, these outcomes can be used to distinguish between codespace states and erroneous states without compromising the information given by the $\alpha$ and $\beta$ superposition parameters. The resulting classical information provided by the stabilizer measurement is known as \textit{error syndrome}. A limitation of this code is that the exact nature of the error that occurred is not revealed by the syndrome. That is, it is not possible to distinguish between the $X_1$ error (bit-flip on qubit 1) and the $X_2$ error (bit-flip on qubit 2). Consequently, there is not enough information to perform an error correction (by re-applying the appropriate error operation). In order to do this, a three-qubit generalization of the code must be implemented.
+
+\subsubsection{The three-qubit code}
+
+The setup for the three-qubit code consists of entangling the qubit state in need of preserving with two ancilliary qubits. The process is very similar to that for the two-qubit code, now involving two CNOT gates, as shown in Figure \ref{fig:three_qub_enc}.
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \node[scale=1.25] {
+    \begin{quantikz}
+        \lstick{$\scriptstyle\ket{\psi}$} & \ctrl{1} & \ctrl{2} & \rstick[3]{$\scriptstyle\ket{\psi}_L$}\\
+        \lstick{$\scriptstyle\ket{0}$}& \targ{} & &\\
+        \lstick{$\scriptstyle\ket{0}$}& & \targ{} & 
+    \end{quantikz}};
+    \end{tikzpicture}
+    \caption{CNOT gate encoding circuit to implement three-qubit bit-flip detection.}
+    \label{fig:three_qub_enc}
+\end{figure}
+
+Error checks can now be performed with a set of two stabilizers: $Z_1Z_2$ and $Z_2Z_3$\footnote{Once again the indices refer to the operations acting on different qubits.}.
+
 
 
 \clearpage
