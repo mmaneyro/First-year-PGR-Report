@@ -111,18 +111,7 @@ The properties of linearity and unitarity generalize for gates acting on multipl
     \end{bmatrix}
 \end{equation}
 This gate performs a $NOT$ operation on the second qubit, as conditioned by the state of the first qubit (which is left unchanged). The effect of this gate is summarized in the following table:
-\begin{table}[hbt!]
-    \centering
-    \begin{tabular}{l | c }
-        IN & OUT\\
-        \hline \hline
-        $\ket{00}$ & $\ket{00}$ \\ 
-        $\ket{01}$ & $\ket{01}$\\
-        $\ket{10}$ & $\ket{11}$\\
-        $\ket{11}$ & $\ket{10}$
-    \end{tabular}
-\caption{$CNOT$ gate truth table}
-\end{table}
+
 \FloatBarrier
 
 The equivalency between the $CNOT$ gate and a classical counterpart is not as direct as what can be drawn between the classical and quantum $NOT$ operations. This is due to yet another useful property stemming from the quantum nature. Quantum logical gate representations are always invertible, meaning that their effect is reversible. Meanwhile, the classical analogue to the $CNOT$ operation ($XOR$ gate) loses information, and therefore the state before its application cannot be recovered.
@@ -309,8 +298,115 @@ The setup for the three-qubit code consists of entangling the qubit state in nee
     \caption{CNOT gate encoding circuit to implement three-qubit bit-flip detection.}
     \label{fig:three_qub_enc}
 \end{figure}
+The encoding results in the logical state
+\begin{equation}
+    \ket{\psi}_L = \alpha \ket{000} +\beta \ket{111}=\alpha \ket{0}_L +\beta \ket{1}_L.
+\end{equation}
 
-Error checks can now be performed with a set of two stabilizers: $Z_1Z_2$ and $Z_2Z_3$\footnote{Once again the indices refer to the operations acting on different qubits.}.
+Consider once again that the only possible errors are bit-flips. Then there are three error operators, representing a flip on each qubit: $X_1$, $X_2$, and $X_3$. Error checks can now be performed with a set of two stabilizers: $S_1=Z_1Z_2$ and $S_2=Z_2Z_3$\footnote{Once again the indices refer to the operations acting on different qubits.}. The pair of operators commute, obeying $\left[S_1,S_2\right]=S_1S_2-S_2S_1=0$. This implies that both stabilizer measurements can be performed simultaneously. As in the two-qubit code, the codespace states are eigenstates of the operators with eigenvalues of $+1$. The stabilizers also commute with the set of logical state operators:
+\begin{eqnarray}
+    X_L&=X_1X_2X_3 \\
+    Y_L&=-iX_LZ_L=-Y_1Y_2Y_3\\
+    Z_L&=Z_1Z_2Z_3
+\end{eqnarray}
+As a result, it is concluded once again that applying the stabilizer measurements does not affect the coherence of the logical state.
+
+Measuring the two stabilizer provides two bits of information, which is sufficient to identify the error type. If the error is identified, then the appropriate error operation can be applied to revert it. Once again, the stabilizers constitute parity operations, and thus can identify whether or not a pair of qubits are in the same state. In this case, different combinations of the measured syndromes can be related to a particular bit flipping. The different syndromes are shown on the following table:
+\begin{table}[hbt!]
+    \centering
+    \begin{tabular}{ l || c | c}
+        Error & $S_1$ & $S_2$ \\ 
+         \hline \hline
+         $I$ & $+1$ & $+1$ \\ 
+         $X_1$ & $-1$ & $+1$\\ 
+         $X_2$ & $-1$ & $-1$\\
+         $X_3$ & $+1$ & $-1$
+    \end{tabular}
+\caption{Error syndrome outcomes for stabilizers $S_1$ and $S_2$ as linked to each possible error ($I$ represents the no error case)}
+\end{table}
+It is possible to define a third stabilizer $S_3=Z_1Z_3$. This is equivalent to the product of the other two stabilizer, and as such does not provide any new information. However, it could be useful to find errors in the stabilizer measurement process.
+
+The two examples provided provide very simple (but not necessarily practical) introductions to what quantum error correction looks like. In reality, more complex codes need to be implemented to address errors more efficiently, as well as addressing errors such as phase flips and entanglements with a bath. Following is a discussion of the tools that can be applied to determine if a code is capable of error correction.
+
+\subsection{Error Correction and the Knill-Laflamme Conditions}
+
+An often useful tool to work with quantum states comes from the density matrix formulation. The state of some quantum system can be expressed as an operator taking the following form:
+\begin{equation}
+    \Hat{\rho} = \sum_j p_j \ket{\psi_j}\bra{\psi_j}.
+    \label{eq:dens_mat}
+\end{equation}
+This represents a mixture of states, each occurring with some probability given by $p_j$ (naturally this must obey $\sum_j p_j = 1$). States $\ket{\psi_j}$ are known as pure states. In previous sections, the qubits were assumed to be in some determined (pure) superposition state. However, when a quantum system experiences entanglement with a bath, the bath state is inaccessible. Given the knowable information, the system could be in any one of some set of pure states, and its full description is given by the statistical mixture in equation \ref{eq:dens_mat}\footnote{If $p_i=1$ and $p_j=0 \;\forall\ j \neq i$ the density matrix corresponds to a pure state $\Hat{\rho} = \ket{\psi_i}\bra{\psi_i}$, and the matrix is a projection.}. Then, the system is said to be in a mixed state. By being able to represent both pure and mixed states, the density matrix provides a general approach to computing expectation values for a quantum operation. 
+
+The Hermitian density matrix has a few key properties: 
+\begin{itemize}
+    \item Unit trace: $\mathrm{Tr}\left[\hat{\rho}\right] =\sum_j p_j = 1 $
+    \item Semi-positive-definite: $\bra{\psi}\hat\rho\ket{\psi}\geq 0$
+    
+    Therefore the matrix has only real and non-negative eigenvalues.
+    \item If (and only if) the represented state is pure:
+    \begin{itemize}
+        \item $\hat\rho=\hat\rho^2$
+        \item $\mathrm{Tr}\left[\hat\rho^2\right] = 1$.
+    \end{itemize}
+\end{itemize}
+
+Both unitary state evolutions (such as a bit-flip error) and those due to non-unitary operators (bath entanglement) must preserve these properties. These transformations are known as CPTP maps, standing for Completely-positive Trace-preserving. The evolution of the density matrix under CPTP maps during time interval $\Delta t$ can be expressed using the \textit{Kraus representation}:
+\begin{equation}
+    \hat\rho'=\hat\rho(t+\Delta t)= \sum_\ell \hat K_\ell \hat\rho(t) \hat K_\ell^\dagger,
+    \label{eq:kraus_rep}
+\end{equation}
+where $K_\ell$ are Kraus operators. The set of Kraus operators $\mathcal{E}=\{ K_0,K_1,K_2,\dots\}$ represents all possible errors. That is, all the deviations that could occur in the system Hamiltonian in the interaction picture (parameter shifts, couplings to environment/bath). Although any number of these operators could be non-unitary, they must obey the relation 
+\begin{equation}
+    \sum_\ell \hat K_\ell^\dagger \hat K_\ell = \hat I
+    \label{eq:trace_pres_rel}
+\end{equation} 
+to satisfy the trace-preserving requirement. This can be proven easily by taking the trace of equation \eqref{eq:kraus_rep} and applying the cyclic property of the trace and the unit trace property of the density matrix.
+
+Consider now a single qubit, which can experience bit flips and phase flips. What would the set of Kraus operators look like? Assuming that for interval $\Delta t$ bit flips and phase flips have probabilities $p_x$ and $p_z$, respectively, the Kraus operators are:
+\begin{eqnarray}
+    \hat K_1 &= \sqrt{p_x}\ \hat X \\
+    \hat K_2 &= \sqrt{p_z}\ \hat Z.
+\end{eqnarray}
+In order to satisfy \eqref{eq:trace_pres_rel} a third operator must be introduced, representing the no-error case, taking the following form:
+\begin{equation}
+    \hat K_0 = \sqrt{1-p_x-p_z}\ \hat I
+\end{equation}
+The probability of error $k$ occurring can be recovered by computing
+\begin{equation}
+    \left<\hat K_k^\dagger \hat K_k\right> = \mathrm{Tr}\left[\hat K_k \hat\rho \hat K_k^\dagger\right] = p_k.
+\end{equation}
+Thus a set of Kraus operators satisfying \eqref{eq:trace_pres_rel} guarantees that error probabilities add up to unity.
+
+The previous example used purely unitary errors. Consider instead a qubit decaying from an excited state $\ket{e}$ to the ground state $\ket{g}$. This error is non-unitary, as the decay is irreversible. This process is known as the amplitude damping channel. If the probability of decay in interval $dt$ is $p^-=\gamma dt$, the Kraus operators are:
+\begin{eqnarray}
+    &\hat K_- = \sqrt{p^-} \ket{g}\bra{e}\\
+     &\hat K_0= \sqrt{1-p^-} \ket{e}\bra{e}+\ket{g}\bra{g}.
+\end{eqnarray}
+Once again there is a $\hat K_0$ operator representing the no error case, where the first term represents the qubit remaining in the excited state, and the second the qubit being (and remaining) in the ground state.
+
+Kraus representations are not unique, in fact, a new set of operators can be defined using an arbitrary unitary transformation $U$ as:
+\begin{equation}
+    \hat F_j = \sum_k U_{jk}\hat K_k.
+\end{equation}
+It is clear from unitary matrix properties that the density matrix evolution by operators $\hat F_j$ must be equivalent to that of operators $\hat K_j$:
+\begin{equation}
+    \sum_j\hat K_j\hat\rho\hat K_j^\dagger = \sum_j\hat F_j\hat\rho\hat F_j^\dagger.
+\end{equation}
+
+The Kraus representation approach to expressing error operations is key to studying the effectiveness of error correction codes, as encapsulated by the Knill-Laflamme conditions.
+
+As was discussed in prior sections the key goal of quantum error correction lies in finding a set of codewords that can be recovered with no loss in information if any error in a Kraus set occurs. A quantum correctable code will satisfy the following set of conditions:
+\begin{equation}
+    \bra{W_\sigma}  \hat K_\ell^\dagger\hat K_k \ket{W_\sigma'}= \alpha_{\ell k}\delta_{\sigma\sigma'}.
+\end{equation}
+Here $\bra{W_\sigma}$ refers to the codewords or logical states, and $\alpha_{\ell k}$ is a Hermitian matrix. The conditions must be satisfied for all Kraus operators in $\mathcal{E}$, and the matrix must be independent on the codewords (all the dependence on $\sigma$ and $\sigma'$ is contained in the Kronecker delta). This independence and the presence of the delta term ensure that the errors can be distinguished, and therefore corrected. If the codeword space spans two logical states $\sigma=\{\uparrow,\downarrow\}$, the delta imposes that states $\hat K_k\ket{W_\uparrow}$ and $\hat K_\ell\ket{W_\downarrow}$ are orthogonal, making the occurrences of both errors distinguishable.
+
+Guaranteeing distinguishability in principle would require the $\alpha$ matrix to be diagonal. However, given that the Kraus representation is not unique, diagonalizing the matrix through some unitary leads to rewriting the conditions as:
+\begin{equation}
+    \bra{W_\sigma}  F_\ell^\dagger\hat F_k \ket{W_\sigma'}= \beta_k\delta_{\ell k}\delta_{\sigma\sigma'},
+\end{equation}
+where $\beta_k$ is an eigenvalue of $\alpha$. Note that the probability of error $k$ on codeword $\sigma$ is $\bra{W_\sigma}  F_k^\dagger\hat F_k \ket{W_\sigma}$. If the $\alpha$ matrix and its eigenvalues depended on $\sigma$ or $\sigma'$ there would be a modification of the codeword superposition (back action). If one of the errors was more likely for one of the codewords, knowledge that this error occurred would imply that that codeword should be weighted more heavily as a possible state of the system. To understand this consider the extreme case where an error can only happen in one of the codewords $\ket{\psi_k}$. If this error is detected the codeword superposition collapses to $\ket{\psi_k}$.
+
 
 
 

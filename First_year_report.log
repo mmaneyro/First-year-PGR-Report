@@ -1,8 +1,11 @@
-This is LuaHBTeX, Version 1.17.1 (MiKTeX 24.1) (format=lualatex 2024.4.16)  26 APR 2024 15:55
+This is LuaHBTeX, Version 1.17.1 (MiKTeX 24.1) (format=lualatex 2024.5.2)  14 MAY 2024 15:31
  restricted system commands enabled.
  file:line:error style messages enabled.
-**//?/c:/Users/mmaneyro/Documents/First-year-PGR-Report/First_year_report.tex
-(//?/c:/Users/mmaneyro/Documents/First-year-PGR-Report/First_year_report.tex
+**"c:/Users/mmaneyro/OneDrive - The University of Liverpool/Documents/First-yea
+r-PGR-Report/First_year_report.tex"
+
+("c:/Users/mmaneyro/OneDrive - The University of Liverpool/Documents/First-year
+-PGR-Report/First_year_report.tex"
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 Lua module: luaotfload 2023-08-31 3.26 Lua based OpenType font support
@@ -1125,7 +1128,8 @@ tikz/libraries/tikzlibraryintersections.code.tex
 ibraryintersections.code.tex
 \pgf@intersect@solutions=\count321
 ))
-(C:/Users/mmaneyro/Documents/classico/tex/latex/classico/classico.sty
+("C:/Users/mmaneyro/OneDrive - The University of Liverpool/Documents/classico/t
+ex/latex/classico/classico.sty"
 Package: classico 2022/09/29 (Bob Tennent) Supports URW Classico fonts for all 
 LaTeX engines.
 
@@ -1968,33 +1972,33 @@ LaTeX Font Info:    Calculating math sizes for size <14.39996> on input line 12
 
 ] [3] [4] [5] [6]
 LaTeX Font Info:    Font shape `TU/URWClassico(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 142.
+(Font)              scaled to size 8.0pt on input line 131.
 LaTeX Font Info:    Font shape `TU/URWClassico(0)/m/n' will be
-(Font)              scaled to size 10.00012pt on input line 142.
-LaTeX Font Info:    Calculating math sizes for size <10.00012> on input line 14
-2.
+(Font)              scaled to size 10.00012pt on input line 131.
+LaTeX Font Info:    Calculating math sizes for size <10.00012> on input line 13
+1.
 LaTeX Font Info:    Font shape `TU/URWClassico(0)/m/n' will be
-(Font)              scaled to size 7.00005pt on input line 142.
+(Font)              scaled to size 7.00005pt on input line 131.
  [7] [8] [9] [10] [11
 
-] [12] [13] [14] [15] [16])
-(./Neutrino_Physics.tex [17
+] [12] [13] [14] [15] [16] [17]
+[18] [19] [20]) (./Neutrino_Physics.tex [21
 
 ]
  2.
-) (./Project_outlook.tex [18
+) (./Project_outlook.tex [22
 
 ]
  3.
-) (./conclusions.tex [19
+) (./conclusions.tex [23
 
 ]
  4.
-) [20
+) [24
 
-] (./First_year_report.bbl [21
+] (./First_year_report.bbl [25
 
-]) [22] (./apendices.tex) [23
+]) [26] (./apendices.tex) [27
 
 ]
 (./First_year_report.aux)
@@ -2010,40 +2014,44 @@ LaTeX Font Warning: Size substitutions with differences
 )
 
 Here is how much of LuaTeX's memory you used:
- 54871 strings out of 476497
+ 54907 strings out of 476497
  125016,2373549 words of node,token memory allocated
- 946 words of node memory still in use:
-   8 hlist, 2 vlist, 2 rule, 1 local_par, 11 glue, 4 kern, 1 penalty, 3 glyph, 1
-07 attribute, 63 glue_spec, 55 attribute_list, 2 write nodes
-   avail lists: 1:13,2:3883,3:1082,4:202,5:2114,6:77,7:7248,8:63,9:828,10:16,11:
-638
- 75050 multiletter control sequences out of 65536+600000
+ 1104 words of node memory still in use:
+   8 hlist, 2 vlist, 2 rule, 1 local_par, 12 glue, 4 kern, 1 penalty, 1 sub_mlis
+t, 1 margin_kern, 3 glyph, 153 attribute, 63 glue_spec, 78 attribute_list, 2 wri
+te, 1 pdf_action nodes
+   avail lists: 1:14,2:4082,3:1115,4:213,5:2073,6:79,7:7247,8:63,9:1014,10:16,11
+:637
+ 75067 multiletter control sequences out of 65536+600000
  343 fonts using 21072559 bytes
- 113i,20n,118p,2013b,1939s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,20n,118p,2050b,1939s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}<C
-:/Users/mmaneyro/Documents/classico/fonts/opentype/urw/classico/URWClassico-Bold
-Italic.otf><C:/Users/mmaneyro/Documents/classico/fonts/opentype/urw/classico/URW
-Classico-Regular.otf><C:/Users/mmaneyro/Documents/classico/fonts/opentype/urw/cl
-assico/URWClassico-Italic.otf><C:/Users/mmaneyro/Documents/classico/fonts/openty
-pe/urw/classico/URWClassico-Bold.otf><C:/Users/mmaneyro/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/mmaneyro/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/mmaneyro/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/m
-maneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/euex10.p
-fb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-euler/eufm10.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/euler/eufm7.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/mmaneyro/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/mmaneyro/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Users
-/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm7.
-pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12
-.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8
-.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/symbols/msam10.pfb>
-Output written on First_year_report.pdf (30 pages, 1207873 bytes).
+:/Users/mmaneyro/OneDrive - The University of Liverpool/Documents/classico/fonts
+/opentype/urw/classico/URWClassico-BoldItalic.otf><C:/Users/mmaneyro/OneDrive - 
+The University of Liverpool/Documents/classico/fonts/opentype/urw/classico/URWCl
+assico-Regular.otf><C:/Users/mmaneyro/OneDrive - The University of Liverpool/Doc
+uments/classico/fonts/opentype/urw/classico/URWClassico-Italic.otf><C:/Users/mma
+neyro/OneDrive - The University of Liverpool/Documents/classico/fonts/opentype/u
+rw/classico/URWClassico-Bold.otf><C:/Users/mmaneyro/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/mmaneyro/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/mmaneyro/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/mmane
+yro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/euex10.pfb><
+C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/eule
+r/eufm10.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/euler/eufm7.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/mmaneyro/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/mmaneyro/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Users/mma
+neyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm7.pfb>
+<C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
+><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pf
+b><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pf
+b><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/s
+ymbols/msam10.pfb>
+Output written on First_year_report.pdf (34 pages, 1257698 bytes).
 
-PDF statistics: 482 PDF objects out of 1000 (max. 8388607)
- 119 named destinations out of 1000 (max. 131072)
- 224 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 532 PDF objects out of 1000 (max. 8388607)
+ 138 named destinations out of 1000 (max. 131072)
+ 232 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -1,5 +1,5 @@
-PWD \\?\c:\Users\mmaneyro\Documents\First-year-PGR-Report
-INPUT \\?\c:\Users\mmaneyro\Documents\First-year-PGR-Report\First_year_report.tex
+PWD c:\Users\mmaneyro\OneDrive - The University of Liverpool\Documents\First-year-PGR-Report
+INPUT c:\Users\mmaneyro\OneDrive - The University of Liverpool\Documents\First-year-PGR-Report\First_year_report.tex
 OUTPUT First_year_report.log
 OUTPUT First_year_report.log
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\tex\latex\latexconfig\lualatexquotejobname.lua
@@ -671,8 +671,8 @@ INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\pgflibraryintersections.code.tex
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\pgflibraryintersections.code.tex
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\pgflibraryintersections.code.tex
-INPUT C:\Users\mmaneyro\Documents\classico\tex\latex\classico\classico.sty
-INPUT C:\Users\mmaneyro\Documents\classico\tex\latex\classico\classico.sty
+INPUT C:\Users\mmaneyro\OneDrive - The University of Liverpool\Documents\classico\tex\latex\classico\classico.sty
+INPUT C:\Users\mmaneyro\OneDrive - The University of Liverpool\Documents\classico\tex\latex\classico\classico.sty
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\tex\generic\iftex\ifxetex.sty
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\tex\generic\iftex\ifxetex.sty
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\tex\latex\base\textcomp.sty
@@ -1635,6 +1635,8 @@ INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfont
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\euler\eusm10.pfb
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\euler\eusm7.pfb
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\euler\eusm7.pfb
+INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr10.pfb
+INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr10.pfb
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr12.pfb
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr12.pfb
 INPUT C:\Users\mmaneyro\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr8.pfb
