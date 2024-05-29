@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.1 (MiKTeX 24.1) (format=lualatex 2024.5.2)  14 MAY 2024 15:31
+This is LuaHBTeX, Version 1.17.1 (MiKTeX 24.1) (format=lualatex 2024.5.2)  29 MAY 2024 16:00
  restricted system commands enabled.
  file:line:error style messages enabled.
 **"c:/Users/mmaneyro/OneDrive - The University of Liverpool/Documents/First-yea
@@ -1929,19 +1929,18 @@ LaTeX Font Info:    Font shape `TU/URWClassico(0)/b/it' will be
 ] (./First_year_report.toc
 LaTeX Font Info:    Font shape `TU/URWClassico(0)/b/n' will be
 (Font)              scaled to size 12.0pt on input line 2.
-)
-\tf@toc=\write4
-
-\openout4 = First_year_report.toc
  [2
 
 
-] (./First_year_report.lof)
+])
+\tf@toc=\write4
+
+\openout4 = First_year_report.toc
+ [3] (./First_year_report.lof)
 \tf@lof=\write5
 
 \openout5 = First_year_report.lof
-
-[3
+ [4
 
 
 ] (./First_year_report.lot)
@@ -1949,14 +1948,13 @@ LaTeX Font Info:    Font shape `TU/URWClassico(0)/b/n' will be
 
 \openout6 = First_year_report.lot
 
-warning  (pdf backend): ignoring duplicate destination with the name 'page.iii'
-[3
-
-
-] [4
+warning  (pdf backend): ignoring duplicate destination with the name 'page.iv'
+[4
 
 
 ] (./Introduction) (./Quantum_Computing.tex [1
+
+
 
 ]
  1.
@@ -1979,26 +1977,46 @@ LaTeX Font Info:    Calculating math sizes for size <10.00012> on input line 13
 1.
 LaTeX Font Info:    Font shape `TU/URWClassico(0)/m/n' will be
 (Font)              scaled to size 7.00005pt on input line 131.
- [7] [8] [9] [10] [11
-
-] [12] [13] [14] [15] [16] [17]
-[18] [19] [20]) (./Neutrino_Physics.tex [21
-
-]
+ [7] [8] [9] [10]
  2.
-) (./Project_outlook.tex [22
+[11
+
+
+] [12] [13] [14] [15] [16]
+<Success_rate.png, id=312, 462.528pt x 346.896pt>
+File: Success_rate.png Graphic file (type png)
+<use Success_rate.png>
+Package luatex.def Info: Success_rate.png  used on input line 335.
+(luatex.def)             Requested size: 277.51894pt x 208.13919pt.
+ [17] [18<./Success_rate.png>] [19] [20] [21]
+[22]
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `TU/URWClassico(0)/m/n' will be
+(Font)              scaled to size 8.00006pt on input line 559.
+ [23] [24] [25] [26] [27]
+Overfull \vbox (0.68443pt too high) has occurred while \output is active []
+
+
+[28] [29]) (./Neutrino_Physics.tex [30
 
 ]
  3.
-) (./conclusions.tex [23
+) (./Project_outlook.tex [31
 
 ]
  4.
-) [24
+[32
 
-] (./First_year_report.bbl [25
+]) (./conclusions.tex [33]
+ 5.
+) [34
 
-]) [26] (./apendices.tex) [27
+] (./First_year_report.bbl [35
+
+]) [36] (./apendices.tex) [37
 
 ]
 (./First_year_report.aux)
@@ -2014,44 +2032,47 @@ LaTeX Font Warning: Size substitutions with differences
 )
 
 Here is how much of LuaTeX's memory you used:
- 54907 strings out of 476497
- 125016,2373549 words of node,token memory allocated
- 1104 words of node memory still in use:
-   8 hlist, 2 vlist, 2 rule, 1 local_par, 12 glue, 4 kern, 1 penalty, 1 sub_mlis
-t, 1 margin_kern, 3 glyph, 153 attribute, 63 glue_spec, 78 attribute_list, 2 wri
-te, 1 pdf_action nodes
-   avail lists: 1:14,2:4082,3:1115,4:213,5:2073,6:79,7:7247,8:63,9:1014,10:16,11
-:637
- 75067 multiletter control sequences out of 65536+600000
- 343 fonts using 21072559 bytes
- 113i,20n,118p,2050b,1939s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 56128 strings out of 476497
+ 305252,2373549 words of node,token memory allocated
+ 1272 words of node memory still in use:
+   8 hlist, 2 vlist, 2 rule, 1 local_par, 15 glue, 4 kern, 1 penalty, 2 sub_mlis
+t, 1 margin_kern, 3 glyph, 199 attribute, 63 glue_spec, 101 attribute_list, 2 wr
+ite, 2 pdf_action nodes
+   avail lists: 1:33,2:33993,3:8456,4:2100,5:2084,6:105,7:15763,8:92,9:4425,10:1
+9,11:637
+ 76248 multiletter control sequences out of 65536+600000
+ 357 fonts using 22256863 bytes
+ 113i,22n,118p,2069b,1997s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}<C
-:/Users/mmaneyro/OneDrive - The University of Liverpool/Documents/classico/fonts
-/opentype/urw/classico/URWClassico-BoldItalic.otf><C:/Users/mmaneyro/OneDrive - 
-The University of Liverpool/Documents/classico/fonts/opentype/urw/classico/URWCl
-assico-Regular.otf><C:/Users/mmaneyro/OneDrive - The University of Liverpool/Doc
-uments/classico/fonts/opentype/urw/classico/URWClassico-Italic.otf><C:/Users/mma
-neyro/OneDrive - The University of Liverpool/Documents/classico/fonts/opentype/u
-rw/classico/URWClassico-Bold.otf><C:/Users/mmaneyro/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/mmaneyro/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/mmaneyro/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/mmane
-yro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/euex10.pfb><
+:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmmono12
+-regular.otf><C:/Users/mmaneyro/OneDrive - The University of Liverpool/Documents
+/classico/fonts/opentype/urw/classico/URWClassico-BoldItalic.otf><C:/Users/mmane
+yro/OneDrive - The University of Liverpool/Documents/classico/fonts/opentype/urw
+/classico/URWClassico-Regular.otf><C:/Users/mmaneyro/OneDrive - The University o
+f Liverpool/Documents/classico/fonts/opentype/urw/classico/URWClassico-Italic.ot
+f><C:/Users/mmaneyro/OneDrive - The University of Liverpool/Documents/classico/f
+onts/opentype/urw/classico/URWClassico-Bold.otf><C:/Users/mmaneyro/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/mmaneyro/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/
+mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmsy7.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/euler/euex10.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/euler/eufm10.pfb><C:/Users/mmaneyro/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/euler/eufm7.pfb><C:/Users/mmaneyro/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/mman
+eyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><
 C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/eule
-r/eufm10.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/euler/eufm7.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/mmaneyro/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/mmaneyro/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Users/mma
-neyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm7.pfb>
-<C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
-><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pf
-b><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pf
-b><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/s
-ymbols/msam10.pfb>
-Output written on First_year_report.pdf (34 pages, 1257698 bytes).
+r/eusm10.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/euler/eusm7.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/lm/lmb10.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/font
+s/type1/public/lm/lmr10.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/lm/lmr12.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/lm/lmr8.pfb><C:/Users/mmaneyro/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on First_year_report.pdf (44 pages, 1388325 bytes).
 
-PDF statistics: 532 PDF objects out of 1000 (max. 8388607)
- 138 named destinations out of 1000 (max. 131072)
- 232 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 695 PDF objects out of 1000 (max. 8388607)
+ 176 named destinations out of 1000 (max. 131072)
+ 296 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -1,3 +1,16 @@
 % !TEX root = ./First_year_report.tex
 
 \chapter{Project Outlook}
+
+Limitations of neutrino-nucleus event generation in classical computing include providing kinematics for only some final state particles, as well as only partially covering phase space. The results also tend to focus on inclusive scattering.
+
+Quantum computing, in particular bosonic quantum computing, provides a promising path towards describing the time evolution of strongly correlated systems, such as those involving Quantum Chromodynamics. As mentioned in previous sections, harmonic oscillators provide several advantages that are potentially relevant to high-energy physics simulation. For example, interactions can be introduced using a universal set of single-qudit gates, instead of relying on gates correlating distinct qubits.
+
+Nuclear effective field theories (EFTs) are useful for obtaining some of the necessary results, in particular at low energy (long distance) where effects such as asymptotic freedom become relevant. EFT dynamics can be simulated from first principles using quantum computers. Using this approach can help mitigate issues such as the exponential scaling of computational complexity as the system size increases. EFT implementations, compared to that of a full theory can serve to obtain information on system dynamics and relevant parameters, while requiring less computational resources. This makes them more likely to be applicable in near-term hardware.
+
+Field theory simulations are typically based on placing the theories on a lattice. As shown in the discussion of GKP codes, a qudit simulation of a lattice theory could place the different lattice sites within a single qudit. 
+
+Prior work has been done to translate nuclear EFTs, such as the pionless, one-pion, and dynamical pion theories on qubit-based quantum computing. The general outline of these implementations consists of discretizing the theory's Hamiltonian, encoding bosons, fermions and interactions on the qubit system, and the Trotter-Suzuki (discretized timestep) evolution of the Hamiltonian. A similar procedure can be implemented in the framework of qudit systems, as has been carried out for theories such as $\phi^4$. However, to our knowledge, the quantum encoding of nuclear EFTs has not been carried out for qudit systems.
+
+The proposed roadmap for the PhD project consists of developing this EFT encoding for qudit systems. Several interesting questions can be addressed through this process. For example, what is the best approach to the encoding? Should discrete or continuous variables be used? How vulnerable to errors would these simulations be? Which error correction protocols could be implemented? What is the viability of performing these simulations on current or near-future hardware? How efficiently can different EFTs be executed? Which resources are needed to produce useful results?
+

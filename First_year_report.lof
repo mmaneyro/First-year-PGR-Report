@@ -1,8 +1,15 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Bloch sphere representation of a qubit state}}{3}{figure.caption.8}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces CNOT gate encoding circuit to implement two-qubit bit-flip detection.}}{15}{figure.caption.10}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces CNOT gate encoding circuit to implement three-qubit bit-flip detection.}}{16}{figure.caption.12}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces CNOT gate encoding circuit to implement two-qubit bit-flip detection.}}{15}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces CNOT gate encoding circuit to implement three-qubit bit-flip detection.}}{16}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Success rate of the three-qubit error correction code for different bit-flip probabilities.}}{18}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Figure showing a toric code lattice}}{22}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Example of a closed loop formed by down-spin bonds}}{23}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Surface code diagram}}{24}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Z-measure cycle for the surface code}}{24}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces X-measure cycle for the surface code}}{25}{figure.caption.17}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

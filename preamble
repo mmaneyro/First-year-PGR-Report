@@ -48,4 +48,8 @@ pdfkeywords={}]{hyperref} %referencias clickeables y metadata
 \usepackage{cite}
 \usepackage{bookmark}
 \usepackage{quantikz}
+\usepackage{ifthen}
+
+
+\renewcommand*{\thefootnote}{(\arabic{footnote})}
 
