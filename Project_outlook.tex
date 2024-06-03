@@ -1,6 +1,6 @@
 % !TEX root = ./First_year_report.tex
 
-\chapter{Project Outlook}
+\chapter{Project Outlook and Summary}
 
 Limitations of neutrino-nucleus event generation in classical computing include providing kinematics for only some final state particles, as well as only partially covering phase space. The results also tend to focus on inclusive scattering.
 
@@ -10,7 +10,7 @@ Nuclear effective field theories (EFTs) are useful for obtaining some of the nec
 
 Field theory simulations are typically based on placing the theories on a lattice. As shown in the discussion of GKP codes, a qudit simulation of a lattice theory could place the different lattice sites within a single qudit. 
 
-Prior work has been done to translate nuclear EFTs, such as the pionless, one-pion, and dynamical pion theories on qubit-based quantum computing. The general outline of these implementations consists of discretizing the theory's Hamiltonian, encoding bosons, fermions and interactions on the qubit system, and the Trotter-Suzuki (discretized timestep) evolution of the Hamiltonian. A similar procedure can be implemented in the framework of qudit systems, as has been carried out for theories such as $\phi^4$. However, to our knowledge, the quantum encoding of nuclear EFTs has not been carried out for qudit systems.
+Prior work has been done to translate nuclear EFTs, such as the pionless, one-pion, and dynamical pion theories to qubit-based quantum computing\cite{Bauer2021,Roggero2019,Watson2023}. The general outline of these implementations consists of discretizing the theory's Hamiltonian, encoding bosons, fermions and interactions on the qubit system, and the Trotter-Suzuki (discretized timestep) evolution of the Hamiltonian. A similar procedure can be implemented in the framework of qudit systems, as has been carried out for theories such as $\phi^4$\cite{kurkcuoglu,Illa2024,Gustafson2021}. However, to our knowledge, the quantum encoding of nuclear EFTs has not been carried out for qudit systems.
 
 The proposed roadmap for the PhD project consists of developing this EFT encoding for qudit systems. Several interesting questions can be addressed through this process. For example, what is the best approach to the encoding? Should discrete or continuous variables be used? How vulnerable to errors would these simulations be? Which error correction protocols could be implemented? What is the viability of performing these simulations on current or near-future hardware? How efficiently can different EFTs be executed? Which resources are needed to produce useful results?
 

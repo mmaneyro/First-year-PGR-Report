@@ -1,15 +1,62 @@
 \begin{thebibliography}{10}
 
+\bibitem{Bova2021}
+F.~Bova, A.~Goldfarb, and R.~G. Melko,
+\newblock EPJ Quantum Technology {\bf 8}, 2 (2021).
+
+\bibitem{Urbanek2020}
+M.~Urbanek, B.~Nachman, and W.~A.~D. Jong,
+\newblock Physical Review A {\bf 102}, 022427 (2020).
+
+\bibitem{Oliviero2022}
+S.~F. Oliviero, L.~Leone, A.~Hamma, and S.~Lloyd,
+\newblock npj Quantum Information 2022 8:1 {\bf 8}, 1 (2022).
+
+\bibitem{Zhang2024}
+X.~Zhang, Z.~Pan, and G.~Liu,
+\newblock (2024),
+\newblock arXiv preprint arXiv:2402.12246.
+
+\bibitem{Humble2022}
+T.~S. Humble, G.~N. Perdue, and M.~J. Savage,
+\newblock Snowmass computational frontier: Topical group report on quantum
+  computing, 2022.
+
+\bibitem{Girvin2021}
+S.~M. Girvin,
+\newblock SciPost Physics Lecture Notes {\bf 70} (2021).
+
+\bibitem{Devitt2013}
+S.~J. Devitt, W.~J. Munro, and K.~Nemoto,
+\newblock Reports on Progress in Physics {\bf 76}, 076001 (2013).
+
+\bibitem{Roffe2019}
+J.~Roffe,
+\newblock Contemporary Physics {\bf 60}, 226 (2019).
+
+\bibitem{sqms}
+Sqms center,
+\newblock https://sqmscenter.fnal.gov/.
+
+\bibitem{kurkcuoglu}
+D.~M. Kurkcuoglu et~al.,
+\newblock FERMILAB-PUB-21-660-QIS  (2022).
+
+\bibitem{cernqti}
+Cern qti,
+\newblock https://quantum.cern/.
+
+\bibitem{Andreopoulos2021}
+C.~Andreopoulos,
+\newblock Genie physics and user manual, 2021.
+
+\bibitem{IBMintro}
+What is quantum computing? | ibm,
+\newblock https://www.ibm.com/topics/quantum-computing.
+
 \bibitem{Nielsen2010}
 M.~A. Nielsen and I.~L. Chuang,
 \newblock Quantum Computation and Quantum Information  (2010).
-
-\bibitem{Preskill2018}
-J.~Preskill,
-\newblock Quantum {\bf 2} (2018).
-
-\bibitem{IBMintro}
-What is quantum computing? | ibm.
 
 \bibitem{Kaye2007}
 P.~Kaye, R.~Laflamme, and M.~Mosca,
@@ -17,83 +64,66 @@ P.~Kaye, R.~Laflamme, and M.~Mosca,
 
 \bibitem{Cleve2021}
 R.~Cleve,
-\newblock (2021).
+\newblock Quantum information processing quantum algorithms (i), 2021.
 
-\bibitem{Dwave}
-What is quantum annealing? — d-wave system documentation documentation.
-
-\bibitem{Zurich}
-Superconducting bosonic qubits | zurich instruments.
+\bibitem{Preskill2018}
+J.~Preskill,
+\newblock Quantum {\bf 2} (2018).
 
 \bibitem{IBMtec}
-Ibm quantum computing | technology.
+Ibm quantum computing | technology,
+\newblock https://www.ibm.com/quantum/technology.
 
-\bibitem{Girvin2021}
-S.~M. Girvin,
-\newblock SciPost Physics Lecture Notes {\bf 70} (2021).
+\bibitem{rigetti}
+Building scalable, innovative quantum systems | rigetti computing,
+\newblock https://www.rigetti.com/what-we-build.
 
-\bibitem{Andersen2020}
-C.~K. Andersen et~al.,
-\newblock Nature Physics {\bf 16}, 875 (2020).
+\bibitem{Dwave}
+What is quantum annealing? — d-wave system documentation,
+\newblock https://docs.dwavesys.com/docs/latest/c_gs_2.html.
+
+\bibitem{Zurich}
+Superconducting bosonic qubits | zurich instruments,
+\newblock
+  https://www.zhinst.com/europe/en/applications/quantum-technologies/superconducting-bosonic-qubits.
 
 \bibitem{Gottesman2009}
 D.~Gottesman,
-\newblock (2009).
+\newblock (2009),
+\newblock arXiv preprint arXiv:0904.2557v1.
 
-\bibitem{Roffe2019}
-J.~Roffe,
-\newblock Contemporary Physics {\bf 60}, 226 (2019).
-
-\bibitem{devitt}
-S.~J. Devitt, W.~J. Munro, and K.~Nemoto.
-
-\bibitem{Krinner2021}
-S.~Krinner et~al.,
-\newblock Nature {\bf 605}, 669 (2021).
-
-\bibitem{Chen2021}
-Z.~Chen et~al.,
-\newblock Nature 2021 595:7867 {\bf 595}, 383 (2021).
+\bibitem{Herringer2020}
+P.~Herringer,
+\newblock The toric code, 2020.
 
 \bibitem{cleland2022}
 A.~N. Cleland,
 \newblock SciPost Physics Lecture Notes {\bf 49}, 049 (2022).
 
+\bibitem{Fowler2012}
+A.~G. Fowler, M.~Mariantoni, J.~M. Martinis, and A.~N. Cleland,
+\newblock Physical Review A - Atomic, Molecular, and Optical Physics {\bf 86}
+  (2012).
+
+\bibitem{Andersen2020}
+C.~K. Andersen et~al.,
+\newblock Nature Physics {\bf 16}, 875 (2020).
+
+\bibitem{Gottesman2001}
+D.~Gottesman, A.~Kitaev, and J.~Preskill,
+\newblock Physical Review A {\bf 64}, 012310 (2001).
+
 \bibitem{campagne2020}
 P.~Campagne-Ibarcq et~al.,
 \newblock Nature 2020 584:7821 {\bf 584}, 368 (2020).
-
-\bibitem{Lau2016}
-H.~K. Lau and M.~B. Plenio,
-\newblock Phys. Rev. Lett. {\bf 117}, 100501 (2016).
-
-\bibitem{Chuang1997}
-I.~L. Chuang, D.~W. Leung, and Y.~Yamamoto,
-\newblock Phys. Rev. A {\bf 56}, 1114 (1997).
 
 \bibitem{Terhal2020}
 B.~M. Terhal, J.~Conrad, and C.~Vuillot,
 \newblock Quantum Science and Technology {\bf 5}, 043001 (2020).
 
-\bibitem{Blais2020}
-A.~Blais, S.~M. Girvin, and W.~D. Oliver,
-\newblock Nat. Phys. {\bf 16}, 247 (2020).
-
-\bibitem{Hu2019}
-L.~Hu et~al.,
-\newblock Nat. Phys. {\bf 15}, 503 (2019).
-
-\bibitem{Michael2016}
-M.~H. Michael et~al.,
-\newblock Phys. Rev. X {\bf 6}, 031006 (2016).
-
 \bibitem{Grimsmo2021}
 A.~L. Grimsmo and S.~Puri,
 \newblock PRX Quantum {\bf 2} (2021).
-
-\bibitem{Cai2021}
-W.~Cai, Y.~Ma, W.~Wang, C.~L. Zou, and L.~Sun,
-\newblock Fundamental Research {\bf 1}, 50 (2021).
 
 \bibitem{Brady2023}
 A.~J. Brady, A.~Eickbusch, S.~Singh, J.~Wu, and Q.~Zhuang,
@@ -102,5 +132,52 @@ A.~J. Brady, A.~Eickbusch, S.~Singh, J.~Wu, and Q.~Zhuang,
 \bibitem{lachance2023}
 D.~Lachance-Quirion et~al.,
 \newblock (2023).
+
+\bibitem{strawberryFields}
+Studying realistic bosonic qubits using the bosonic backend — strawberry
+  fields,
+\newblock https://strawberryfields.ai/photonics/demos/run_GKP_bosonic.html.
+
+\bibitem{stecker}
+F.~W. Stecker,
+\newblock {\em Chapter 1 Neutrino Physics and Astrophysics Overview},
+\newblock World Scientific Publishing, 2023.
+
+\bibitem{NustecWP}
+L.~Alvarez-Ruso et~al.,
+\newblock Progress in Particle and Nuclear Physics {\bf 100}, 1 (2017).
+
+\bibitem{hyperk}
+Overview | hyper-kamiokande,
+\newblock https://www-sk.icrr.u-tokyo.ac.jp/en/hk/about/outline/.
+
+\bibitem{dune}
+Deep underground neutrino experiment,
+\newblock https://www.dunescience.org/.
+
+\bibitem{Bansal2017}
+A.~Bansal et~al.,
+\newblock Physical Review C {\bf 98} (2017).
+
+\bibitem{Bauer2021}
+C.~W. Bauer, B.~Nachman, and M.~Freytsis,
+\newblock PHYSICAL REVIEW LETTERS {\bf 127}, 212001 (2021).
+
+\bibitem{Roggero2019}
+A.~Roggero, A.~C.~Y. Li, J.~Carlson, R.~Gupta, and G.~N. Perdue,
+\newblock Physical Review D {\bf 101} (2019).
+
+\bibitem{Watson2023}
+J.~D. Watson et~al.,
+\newblock (2023).
+
+\bibitem{Illa2024}
+M.~Illa, C.~E.~P. Robin, and M.~J. Savage,
+\newblock (2024),
+\newblock arXiv preprint arXiv:2403.14537.
+
+\bibitem{Gustafson2021}
+E.~J. Gustafson,
+\newblock Physical Review D {\bf 103}, 114505 (2021).
 
 \end{thebibliography}

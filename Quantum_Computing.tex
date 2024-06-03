@@ -6,7 +6,7 @@ At a fundamental level, quantum computing is a discipline focused on developing 
 
 It is also worth mentioning that the work needed to achieve this has and will likely continue to contribute to our understanding of quantum mechanics and the development of new techniques in superconductivity, control of quantum systems and more. Due to this, progress in the field is important beyond short- or intermediate-term applications.
 
-This chapter introduces the basic concepts behind quantum computing and provides a brief overview of the current state of the field. Afterward, the focus is on Quantum Error Correction, one of the main challenges behind this technology. Due to the nature of this project, the topics will be introduced from the well-known qubit-based perspective alongside the bosonic (quantum resonator-based) architectures.
+This chapter introduces the basic concepts behind quantum computing and provides a brief overview of the current state of the field. Afterward, the focus is on Quantum Error Correction, one of the main challenges behind this technology. Due to the nature of this project, the topics will be introduced from the commonly discussed qubit-based perspective alongside the bosonic (quantum resonator-based) architectures.
 
 \section{Fundamentals}
 \subsection{The qubit and superposition}
@@ -45,7 +45,7 @@ In the Bloch sphere, qubit states are represented in three-dimensional space in 
 \begin{equation}
     \ket{\psi} =\cos \left(\theta /2\right)\ket{0} \,+\,e^{i\phi }\sin \left(\theta /2\right)\ket{1},
 \end{equation}
-with $0\leq \theta \leq \pi$ and $0\leq \phi \leq 2\pi$. Although at first glance it would appear there is an infinite amount of states that can be represented within a qubit. This however doesn't imply that an infinite amount of information can be encoded within it. Due to the quantum measurement phenomenon known as state \textit{collapse}, the outcome of qubit measurement will be either 0 or 1, providing one bit's worth of information. In fact, an exact determination of the parameters in a qubit state would require measuring an infinite number of identical qubits. At the same time, the properties of unmeasured qubits are essential to the power of quantum processing.
+with $0\leq \theta \leq \pi$ and $0\leq \phi \leq 2\pi$. Although at first glance it would appear there is an infinite amount of states that can be represented within a qubit. This however doesn't imply that an infinite amount of information can be encoded within it. Due to the quantum measurement phenomenon known as state \textit{collapse}, the outcome of qubit measurement will be either 0 or 1, providing one bit's worth of information. In fact, an exact determination of the parameters in a qubit state would require measuring an infinite number of identical qubits. At the same time, the properties of unmeasured qubits are essential to the power of quantum processing\cite{IBMintro,Nielsen2010,Kaye2007,Cleve2021}.
 
 \subsection{Composite systems and entanglement}
 
@@ -59,9 +59,10 @@ An essential quantum behaviour that emerges when working with multiple qubits is
 \begin{equation}
     \psi = \cfrac{\ket{00}\ +\ \ket{11}}{\sqrt{2}}.
 \end{equation}
-If the first qubit in this composite state is measured, the outcome will be $\ket{0}$ or $\ket{1}$ with respective probabilities of $1/2$. What is most interesting is what our measurement tells us about the state of the system overall. If the first qubit is in state $\ket{0}$ ($\ket{1}$), after measurement the system must be in state $\ket{00}$ ($\ket{11}$). Therefore, there is only one possible state the second qubit is allowed to be in, and gaining this information did not require performing a direct measurement. This shows how quantum elements can be correlated beyond what is possible for a purely classical system, and this property will be the basis of useful methods within the discipline of quantum computing. 
+If the first qubit in this composite state is measured, the outcome will be $\ket{0}$ or $\ket{1}$ with respective probabilities of $1/2$. What is most interesting is what our measurement tells us about the state of the system overall. If the first qubit is in state $\ket{0}$ ($\ket{1}$), after measurement the system must be in state $\ket{00}$ ($\ket{11}$). Therefore, there is only one possible state the second qubit is allowed to be in, and gaining this information did not require performing a direct measurement.
+Furthermore, Bell states cannot be decomposed into products of individual qubit states. This shows how quantum elements can be correlated beyond what is possible for a purely classical system, and this property will be the basis of useful methods within the discipline of quantum computing. 
 
-While discussing multi-qubit systems it is worth noting that for an $n$-state system, the basis states are simply a generalization of what has been discussed for the two-qubit case. It will once again be given by all possible combinations of qubit states. As a consequence the total number of encoded states grows quickly as $2^n$, achieving very high state numbers with qubit numbers in the hundreds. Due to the probabilistic nature of the qubits, it is possible to work with large amounts of quantum numbers simultaneously, far beyond what can be encoded classically.
+While discussing multi-qubit systems it is worth noting that for an $n$-state system, the basis states are simply a generalization of what has been discussed for the two-qubit case. It will once again be given by all possible combinations of qubit states. As a consequence the total number of encoded states grows quickly as $2^n$, achieving very high state numbers with qubit numbers in the hundreds. Due to the probabilistic nature of the qubits, it is possible to work with large amounts of quantum states simultaneously, far beyond what can be encoded classically. Although this is often cited as a key advantage of quantum computing, it is worth noting that analog computing also contributes to the value of these systems. Furthermore, it has been posited that true quantum advantage stems from the existence of so-called 'magic states', which can't be simulated classically \cite{Zhang2024, Oliviero2022}.
 
 So far, this section has focused on qubits as the essential units for quantum information. For the purpose of computation, however, the information must be manipulated as per the end goal. The next subsection discusses the gate operations that make this possible.
 
@@ -111,18 +112,29 @@ The properties of linearity and unitarity generalize for gates acting on multipl
     \end{bmatrix}
 \end{equation}
 This gate performs a $NOT$ operation on the second qubit, as conditioned by the state of the first qubit (which is left unchanged). The effect of this gate is summarized in the following table:
+\begin{table}[hbt!]
+    \centering
+    \begin{tabular}{l | c }
+        IN & OUT\\
+        \hline \hline
+        $\ket{00}$ & $\ket{00}$ \\ 
+        $\ket{01}$ & $\ket{01}$\\
+        $\ket{10}$ & $\ket{11}$\\
+        $\ket{11}$ & $\ket{10}$
+    \end{tabular}
+\caption{$CNOT$ gate truth table}
+\end{table}
 
 \FloatBarrier
 
 The equivalency between the $CNOT$ gate and a classical counterpart is not as direct as what can be drawn between the classical and quantum $NOT$ operations. This is due to yet another useful property stemming from the quantum nature. Quantum logical gate representations are always invertible, meaning that their effect is reversible. Meanwhile, the classical analogue to the $CNOT$ operation ($XOR$ gate) loses information, and therefore the state before its application cannot be recovered.
 
- It is worth mentioning as well that the conditional action based on the state of the first qubit does not constitute a measurement. Due to this, it does not cause a collapse of the superposition state, making the $CNOT$ gate an extremely powerful tool. In fact, it is proven that the use of $CNOT$ gates alongside the set of single-qubit rotations is sufficient to perform any operation (on any number of qubits). This is known as universality, and can theoretically be realized to arbitrary accuracy.
- Another aspect of note is that the $CNOT$ gate can be used to prepare entangled states, such as the aforementioned Bell states.
+It is worth mentioning as well that the conditional action based on the state of the first qubit does not constitute a measurement. Due to this, it does not cause a collapse of the superposition state, making the $CNOT$ gate an extremely powerful tool. In fact, it is proven that the use of $CNOT$ gates alongside the set of single-qubit rotations is sufficient to perform any operation (on any number of qubits). This is known as universality, and can theoretically be realized to arbitrary accuracy. Another aspect of note is that the $CNOT$ gate can be used to prepare entangled states, such as the aforementioned Bell states.
 
 \section{Current Capabilities}
 
 \subsection{The NISQ era}
-Presently, quantum computing is in its NISQ era, standing for (Noisy Intermediate-Scale Quantum). This denomination refers to some of the main challenges of quantum computation. 
+Presently, quantum computing is in its NISQ era, standing for (Noisy Intermediate-Scale Quantum)\cite{Preskill2018}. This denomination refers to some of the main challenges of quantum computation. 
 
 The first challenge is noise. Even within the context of classical computing, there exists a possibility of random errors that may modify the state of one or more bits. The quantum properties of qubits make them particularly susceptible to environmental interference. As was discussed previously, an interaction (or measurement) will lead to quantum decoherence, and so eliminate the useful characteristics of the system. Due to this, hardware implementations need to put special emphasis on, for example, isolating qubits and preventing thermal fluctuations. 
 
@@ -132,37 +144,25 @@ Recent work by several companies (such as IBM, Rigetti, and Google) has enabled 
 
 The basic ideas behind Quantum Error Correction, along with some examples, will be addressed in a later chapter. The next subsection provides an overview of some of the physical systems that are currently used as quantum hardware.
 
-\subsection{Hardware approaches}
+\subsection{Hardware Approaches}
 
-As was described in the previous subsection, the quantum computing framework can be carried out through different physical systems. These include, for example, superconducting qubits, trapped ions, and photonics. The following descriptions do not aim to provide a comprehensive overview of each hardware architecture, and instead hope to provide a more grounded idea of how quantum computing is carried out. As will be described, each hardware implementation presents a set of limitations that need to be addressed to develop usable quantum computers. At the same time, each of them can also provide unique advantages and can be worked with from different conceptual points of view. 
+As was described in the previous subsection, the quantum computing framework can be carried out through different physical systems. These include, for example, superconducting qubits, trapped ions, and photonics. The following descriptions do not aim to provide a comprehensive overview of each hardware architecture and instead hope to provide a more grounded idea of how quantum computing is carried out. As will be described, each hardware implementation presents a set of limitations that need to be addressed to develop usable quantum computers. At the same time, each of them can also provide unique advantages and can be worked with from different conceptual points of view. 
 
-Perhaps the best-known type of quantum hardware is based on superconducting qubits. These systems build qubits from Josephson junctions, formed by two superconducting elements separated by a fine insulator layer. Due to the Josephson effect, this junction will allow a current between the superconductors, enabled by \textit{quantum tunnelling}\footnote{Quantum tunnelling is a quantum mechanical effect that allows particles to go through barriers (such as the walls of a potential well), despite their energy being lower than that needed to surmount them according to classical physics.}, thus displaying a quantum effect at a macroscopic scale. The logical qubit states $\ket{0}$ and $\ket{1}$ can be mapped to different physical states of the superconducting components, such as discrete energy levels. The elements are then arranged into a circuit. 
+Perhaps the best-known type of quantum hardware is based on superconducting qubits. These systems build qubits from Josephson junctions, formed by two superconducting elements separated by a fine insulator layer. Due to the Josephson effect, this junction will allow a current between the superconductors, enabled by \textit{quantum tunnelling}\footnote{Quantum tunneling is a quantum mechanical effect that allows particles to go through barriers (such as the walls of a potential well), despite their energy being lower than that needed to surmount them according to classical physics.}, thus displaying a quantum effect at a macroscopic scale. The logical qubit states $\ket{0}$ and $\ket{1}$ can be mapped to different physical states of the superconducting components, such as discrete energy levels. The elements are then arranged into a circuit. 
 
 In order to manipulate these superconducting circuits to perform computations it is necessary to construct reliable control operations. In the case of superconducting qubits, microwave pulses can be administered to execute single-qubit or multiple-qubit gate operations. The control and readout of the superconducting qubits are carried out using classical computers, that are already built for user interfacing.
 
-Due to their superconducting nature, these systems need to be maintained at cryogenic temperatures to prevent decoherence. The cabling linking circuit elements and aspects such as qubit readout also need to be optimized to minimize incidences of errors and allow for the scalability of the systems. In other words, technical advances in hardware development are essential to building quantum computers with larger qubit numbers that can execute more gate operations, while avoiding the exponential increase of errors. Some of the companies focused on this task are Rigetti, IBM, and Google.
+Due to their superconducting nature, these systems need to be maintained at cryogenic temperatures to prevent decoherence. The cabling linking circuit elements and aspects such as qubit readout also need to be optimized to minimize incidences of errors and allow for the scalability of the systems. In other words, technical advances in hardware development are essential to building quantum computers with larger qubit numbers that can execute more gate operations, while avoiding the exponential increase of errors. Some of the companies focused on this task are Rigetti, IBM, and Google\cite{IBMtec,rigetti}.
 
-Computation using superconducting qubits does not always rely on gate operations. This is the case in quantum annealers, such as those developed by D-wave. These systems apply magnetic fields to superconducting qubits that can manipulate the probability of a qubit being in each state (bias). Lattice configurations are assembled for these qubits, establishing couplings between them with arbitrary correlation weights. A user choice of qubit biases and couplings can be used to solve optimization-type problems. The annealing process consists of slowly evolving the system from a ground state of unbiased and uncorrelated qubits into the ground state of the problem that the user desires to solve.
+Computation using superconducting qubits does not always rely on gate operations. This is the case in quantum annealers, such as those developed by D-wave\cite{Dwave}. These systems apply magnetic fields to superconducting qubits that can manipulate the probability of a qubit being in each state (bias). Lattice configurations are assembled for these qubits, establishing couplings between them with arbitrary correlation weights. A user choice of qubit biases and couplings can be used to solve optimization-type problems. The annealing process consists of slowly evolving the system from a ground state of unbiased and uncorrelated qubits into the ground state of the problem that the user desires to solve.
 
-A classic case of an optimization problem is that of the travelling salesman. The goal of the problem is to find the shortest route for the traveller between a set of towns. Although coming up with a classical algorithm to solve this problem is straightforward (simply calculate distances for all possible paths and compare), its computational cost increases exponentially with the number of towns. Thus, the problem cannot be solved by classical computers for non-trivial cases (although heuristic solutions exist that provide approximate solutions for some more complex cases).
+A classic case of an optimization problem is that of the traveling salesman. The goal of the problem is to find the shortest route for the traveler between a set of towns. Although coming up with a classical algorithm to solve this problem is straightforward (simply calculate distances for all possible paths and compare), its computational cost increases exponentially with the number of towns. Thus, the problem cannot be solved by classical computers for non-trivial cases (although heuristic solutions exist that provide approximate solutions for some more complex cases).
 
-This is the type of problem that could benefit from a quantum annealing-based computer. In this case, the correlations between qubits represent the distances between the cities. Meanwhile, the qubit states contain the information on whether a town was (or wasn't) visited in a sequence step. The total system energy for a given state is associated with the distance traversed by the traveller if the towns were visited in that particular order. Thus, the ground state provided by an annealer will correspond to the desired solution, the optimal path. It is worth noting that this approach is also liable to qubit decoherence, as well as other sources of error. Furthermore, the annealing process can be heuristically transposed into gate-based quantum computers to address optimization problems.
+This is the type of problem that could benefit from a quantum annealing-based computer. In this case, the correlations between qubits represent the distances between the cities. Meanwhile, the qubit states contain the information on whether a town was (or was not) visited in a sequence step. The total system energy for a given state is associated with the distance traversed by the traveler if the towns were visited in that particular order. Thus, the ground state provided by an annealer will correspond to the desired solution, the optimal path. It is worth noting that this approach is also liable to qubit decoherence, as well as other sources of error. Furthermore, the annealing process can be heuristically transposed into gate-based quantum computers to address optimization problems.
 
-A third type of quantum computer is the bosonic system. This dispenses with the focus on two-level qubits. Instead, bosonic computing's basic unit is the qudit, which can have N levels. In physical terms, a qudit is implemented using a quantum harmonic oscillator, and assigning a logical state to each of its accessible energy levels. Quantum oscillator systems can be built using Superconducting radio-frequency (SRF) cavities, which have very low rates of dissipation and are therefore well equipped to maintain state coherence. 
+A third type of quantum computer is the bosonic system, part of the work of companies like Zurich Instruments\cite{Zurich} and the SQMS centre. This dispenses with the focus on two-level qubits. Instead, bosonic computing's basic unit is the qudit, which can have N levels. In physical terms, a qudit is implemented using a quantum harmonic oscillator, and assigning a logical state to each of its accessible energy levels. Quantum oscillator systems can be built using Superconducting radio-frequency (SRF) cavities, which have very low rates of dissipation and are therefore well equipped to maintain state coherence. 
 
 The ability to encode a higher number of states within one single hardware element is key to implementing Quantum Error Correction procedures without introducing new sources of noise. The possible errors in a resonant cavity are linked to photon loss, which is easy to detect and correct. These advantages have turned bosonic platforms into an area of high interest and expectation. As bosonic quantum computing is a focus of this PhD, a further section will be dedicated entirely to this particular topic.
-
-
-
-
-
-\vspace{5cm}
-Qubits, NISQ overview: \cite{Nielsen2010} \cite{Preskill2018} \cite{IBMintro} \cite{Kaye2007} \cite{Cleve2021}. 
-Expected applications (brief), perhaps better suited to the intro section?
-
-Different hardware approaches (brief): \cite{Dwave} \cite{Zurich} \cite{IBMtec}
-
-Bosonic systems: \cite{Zurich} \cite{Girvin2021}, cQED
 
 \clearpage
 \chapter{Quantum Error Correction}
@@ -171,13 +171,13 @@ As was established in prior sections, quantum computers are susceptible to envir
 
 \section{Introduction to Error Correction}
 
-One of the basic ideas behind error correction is that of redundancy. In simple terms, it consists of using a higher number of bits (or qubits) to encode one bit (or qubit) of information. A simple illustrative example is that of the classical repetition code. Instead of just utilizing one bit with possible values of 0 and 1, one can define logical codewords. These logical codewords are strings of multiple bits, mapped to logical states 0 and 1. For the three-bit repetition code, codeword '000' (three bits in state 0) corresponds to logical state 0, while codeword '111' does to logical 1. 
+One of the basic ideas behind error correction is that of redundancy\cite{Girvin2021,Gottesman2009,Devitt2013,Roffe2019}. In simple terms, it consists of using a higher number of bits (or qubits) to encode one bit (or qubit) of information. A simple illustrative example is that of the classical repetition code. Instead of just utilizing one bit with possible values of 0 and 1, one can define logical codewords. These logical codewords are strings of multiple bits, mapped to logical states 0 and 1. For the three-bit repetition code, codeword '000' (three bits in state 0) corresponds to logical state 0, while codeword '111' does to logical 1. 
 
 In classical computing, there is only one possible error, known as bit flip. A bit flip occurs when a bit in 0 gets mapped to 1, or vice versa. When transmitting the logical states, the receiver could get '100', '010' or '001' instead of codeword 0, assuming only one bit flip occurs. This error can easily be remedied using \textit{majority voting}. Simply put, if most of the bits take value 0, the 1-valued bits are assumed to have flipped, and the error can be rectified. 
 
 If two bits happen to flip, the error can be detected, as the transmitted bit string does not match either codeword. However, this error cannot be corrected using majority voting, and the received logical bit will be incorrect. If three errors occur, the situation is even more dire, as the resulting state is still a valid codeword, and the error cannot be detected, much less rectified. This does not mean that the three-bit repetition code (despite being inefficient) is unable to provide any improvement. Error correction is based on the assumption that hardware performs well enough that errors are rare. Thus the goal is not to provide ideal error correction but to further reduce the already low incidence of errors. In the case of the three-bit repetition code, low error probabilities mean that uncorrectable errors (two or three bit-flips) are significantly less likely than the correctable single bit-flip. Likewise, undetectable errors are the least likely to occur. 
 
-It is worth noting that some tools to address errors can be designed with only detection (and not correction) in mind. For example, for an arbitrary bit string, an additional bit can be implemented to record the string (plus ancilla) parity. This is achieved by mapping even and odd parity to 0 and 1. If at a later stage the parity of the new bit string is odd, an odd number of bit-flips must have occurred. The exact details of the errors cannot be obtained from the bit string, but the string is known to be corrupted. Given that the incidence of no-flip and one bit-flip events is much higher than that of two bit-flips (where parity is indistinguishable from the errorless case), it is reasonable to assume that an even parity implies that no bit has flipped. Likewise, it is to be expected that an odd parity was caused by one single error.
+It is worth noting that some tools to address errors can be designed with only detection (and not correction) in mind. For example, for an arbitrary bit string, an additional bit can be implemented to record the string (plus ancilla) parity. This is achieved by mapping even and odd parity to 0 and 1. If, at a later stage, the parity of the new bit string is odd, an odd number of bit-flips must have occurred. The exact details of the errors cannot be obtained from the bit string, but the string is known to be corrupted. Given that the incidence of no-flip and one bit-flip events is much higher than that of two bit-flips (where parity is indistinguishable from the errorless case), it is reasonable to assume that an even parity implies that no bit has flipped. Likewise, it is to be expected that an odd parity was caused by one single error.
 
 When adding ancilla bits, it is important to consider that the error rate is a priori increased. Consider once again the repetition code. If each bit in a certain hardware system is known to have a probability of error $\epsilon$, the probability of having no errors on a bit is: \begin{equation}
     P_0=1-\epsilon.
@@ -203,12 +203,12 @@ The breakeven point equation $\epsilon_{logical}=\epsilon$ shows that the repeti
 It is worth noting that introducing error correction for bit flips does not provide complete fault tolerance, as more realistic error models need to take into account errors introduced when other system elements fail. This includes accounting for possible errors in the error-correction circuitry itself or errors attributed to the process of measuring bit states. For example, a realistic logic gate will have some chance of failing when used. The goal is to design error correction circuits that only incur errors that it can detect and correct in its subsequent applications.
 This also affects the frequency at which the correction process must be applied.
 
-If there is a certain probability of each bit in the system flipping in a given time interval, a repetition-code-based correction scheme needs to be applied before the probability of uncorrectable errors becomes too large. However, if the correction code is applied too often, there is a risk of having error correction circuit errors (such as incorrect majority voting). Near-perfect correction circuits should enable fault tolerance through speedy circuit implementations. However, realistically, the delay between operations will be affected by the take to execute.
+If there is a certain probability of each bit in the system flipping in a given time interval, a repetition-code-based correction scheme needs to be applied before the probability of uncorrectable errors becomes too large. However, if the correction code is applied too often, there is a risk of having error correction circuit errors (such as incorrect majority voting). Near-perfect correction circuits should enable fault tolerance through speedy circuit implementations. However, realistically, the delay between operations will be affected by the time needed to execute them.
 
 Having discussed some of the basic concepts and motivations when performing error correction, let us move on to applications to qubit-based systems.
 
 
-\section{Error correction for qubit systems}
+\section{Error Correction for Qubit Systems}
 
 As was described in the first section, qubit states exist within the continuum of all states in the Bloch sphere. Consequently, a clear difference between bit and qubit errors will stem from the multiplicity of error types in the latter case. A qubit can experience coherent errors taking it into any other of the infinite possible states, rather than just being shifted from 0 to 1.
 
@@ -252,7 +252,7 @@ On the other hand, an error caused by the Z matrix is known as a phase-flip erro
 \end{equation}
 This is equivalent to a $180^\circ$ rotation around the $z$-axis on the Block sphere shown in Figure \ref{fig:bloch_sphere}.
 
-As was mentioned previously, there is a key difference between classical and quantum error correction, beyond the introduction of the phase-flip. Due to the no-cloning theorem, quantum error correction codes cannot rely on making perfect copies of the qubit state. For the repetition code example, it was shown that the physical bit state was applied to two ancilla bits to form logical codewords '000' and '111'. This cannot be replicated for a qubit. A further limitation stems from the wavefunction collapse that can be triggered when a state measurement is applied. Thus, QEC constitutes a framework going beyond the tools of classical computing, as will be subsequently shown.
+As was mentioned previously, there is a key difference between classical and quantum error correction, beyond the introduction of the phase-flip. Due to the no-cloning theorem, quantum error correction codes cannot rely on making perfect copies of the qubit state. For the repetition code example, it was shown that the physical bit state was applied to two ancilla bits to form logical codewords '000' and '111'. This cannot be replicated for a qubit. A further limitation stems from the wavefunction collapse that can be triggered when a state measurement is applied\cite{Girvin2021,Gottesman2009,Devitt2013,Roffe2019}. Thus, QEC constitutes a framework going beyond the tools of classical computing, as will be subsequently shown.
 
 \subsection{A simple two-qubit code}
 
@@ -284,7 +284,7 @@ In this case, the stabilizer operation is $Z_1Z_2$, where $Z_1$ and $Z_2$ refer 
 
 \subsection{The three-qubit code}
 
-The setup for the three-qubit code consists of entangling the qubit state in need of preserving with two ancilliary qubits. The process is very similar to that for the two-qubit code, now involving two CNOT gates, as shown in Figure \ref{fig:three_qub_enc}.
+The setup for the three-qubit code consists of entangling the qubit state in need of preserving with two ancillary qubits. The process is very similar to that for the two-qubit code, now involving two CNOT gates, as shown in Figure \ref{fig:three_qub_enc}.
 \begin{figure}
     \centering
     \begin{tikzpicture}
@@ -311,7 +311,7 @@ Consider once again that the only possible errors are bit-flips. Then there are 
 \end{eqnarray}
 As a result, it is concluded once again that applying the stabilizer measurements does not affect the coherence of the logical state.
 
-Measuring the two stabilizer provides two bits of information, which is sufficient to identify the error type. If the error is identified, then the appropriate error operation can be applied to revert it. Once again, the stabilizers constitute parity operations, and thus can identify whether or not a pair of qubits are in the same state. In this case, different combinations of the measured syndromes can be related to a particular bit flipping. The different syndromes are shown in the following table:
+Measuring the two stabilizers provides two bits of information, which is sufficient to identify the error type. If the error is identified, then the appropriate error operation can be applied to revert it. Once again, the stabilizers constitute parity operations and thus can identify whether or not a pair of qubits is in the same state. In this case, different combinations of the measured syndromes can be related to a particular bit flipping. The different syndromes are shown in the following table:
 \begin{table}[hbt!]
     \centering
     \begin{tabular}{ l || c | c}
@@ -325,14 +325,14 @@ Measuring the two stabilizer provides two bits of information, which is sufficie
 \caption[Error syndrome outcomes for stabilizers in the three-qubit code]{Error syndrome outcomes for stabilizers $S_1$ and $S_2$ as linked to each possible error ($I$ represents the no error case)}
 \end{table}
 
-It is possible to define a third stabilizer $S_3=Z_1Z_3$. This is equivalent to the product of the other two stabilizer, and as such does not provide any new information. However, it could be useful to find errors in the stabilizer measurement process.
+It is possible to define a third stabilizer $S_3=Z_1Z_3$. This is equivalent to the product of the other two stabilizers, and as such does not provide any new information. However, it could be useful to find errors in the stabilizer measurement process.
 
 The two examples provided provide very simple (but not necessarily practical) introductions to what quantum error correction looks like. In reality, more complex codes need to be implemented to address errors more efficiently, as well as addressing errors such as phase flips and entanglements with a bath. Following is a discussion of the tools that can be applied to determine if a code is capable of error correction.
 
-This behaviour of this code was tested and visualized by implementing it using Python. Although quantum computing packages such as Qiskit are available, a more hands-on approach was taken, coding the linear algebra involved in the process. As a result, we visualized how the probability of a bit-flip occurring affects the success rate of the code over several tests (that is, how often the error correction execution managed to preserve the qubit state). This result is shown on Figure \ref{fig:three-qbit-code-success}.
+The behaviour of this code was tested and visualized by implementing it using Python. Although quantum computing packages such as Qiskit are available, a more hands-on approach was taken, coding the linear algebra involved in the process. As a result, we visualized how the probability of a bit-flip occurring affects the success rate of the code over several tests (that is, how often the error correction execution managed to preserve the qubit state). This result is shown in Figure \ref{fig:three-qbit-code-success}.
 \begin{figure}
     \centering
-    \includegraphics[scale=0.6]{Success_rate.png}
+    \includegraphics[scale=0.5]{Success_rate.png}
     \caption{Success rate of the three-qubit error correction code for different bit-flip probabilities.}
     \label{fig:three-qbit-code-success}
 \end{figure}
@@ -364,7 +364,7 @@ Both unitary state evolutions (such as a bit-flip error) and those due to non-un
     \hat\rho'=\hat\rho(t+\Delta t)= \sum_\ell \hat K_\ell \hat\rho(t) \hat K_\ell^\dagger,
     \label{eq:kraus_rep}
 \end{equation}
-where $K_\ell$ are Kraus operators. The set of Kraus operators $\mathcal{E}=\{ K_0,K_1,K_2,\dots\}$ represents all possible errors. That is, all the deviations that could occur in the system Hamiltonian in the interaction picture (parameter shifts, couplings to environment/bath). Although any number of these operators could be non-unitary, they must obey the relation 
+where $K_\ell$ are Kraus operators\cite{Girvin2021}. The set of Kraus operators $\mathcal{E}=\{ K_0,K_1,K_2,\dots\}$ represents all possible errors. That is, all the deviations that could occur in the system Hamiltonian in the interaction picture (parameter shifts, couplings to environment/bath). Although any number of these operators could be non-unitary, they must obey the relation 
 \begin{equation}
     \sum_\ell \hat K_\ell^\dagger \hat K_\ell = \hat I
     \label{eq:trace_pres_rel}
@@ -408,7 +408,7 @@ As was discussed in prior sections the key goal of quantum error correction lies
 \begin{equation}
     \bra{W_\sigma}  \hat K_\ell^\dagger\hat K_k \ket{W_\sigma'}= \alpha_{\ell k}\delta_{\sigma\sigma'}.
 \end{equation}
-Here $\bra{W_\sigma}$ refers to the codewords or logical states, and $\alpha_{\ell k}$ is a Hermitian matrix. The conditions must be satisfied for all Kraus operators in $\mathcal{E}$, and the matrix must be independent on the codewords (all the dependence on $\sigma$ and $\sigma'$ is contained in the Kronecker delta). This independence and the presence of the delta term ensure that the errors can be distinguished, and therefore corrected. If the codeword space spans two logical states $\sigma=\{\uparrow,\downarrow\}$, the delta imposes that states $\hat K_k\ket{W_\uparrow}$ and $\hat K_\ell\ket{W_\downarrow}$ are orthogonal, making the occurrences of both errors distinguishable.
+Here $\bra{W_\sigma}$ refers to the codewords or logical states, and $\alpha_{\ell k}$ is a Hermitian matrix. The conditions must be satisfied for all Kraus operators in $\mathcal{E}$, and the matrix must be independent on the codewords (all the dependence on $\sigma$ and $\sigma'$ is contained in the Kronecker delta). This independence and the presence of the delta term ensure that the errors can be distinguished and therefore corrected. If the codeword space spans two logical states $\sigma=\{\uparrow,\downarrow\}$, the delta imposes that states $\hat K_k\ket{W_\uparrow}$ and $\hat K_\ell\ket{W_\downarrow}$ are orthogonal, making the occurrences of both errors distinguishable.
 
 Guaranteeing distinguishability in principle would require the $\alpha$ matrix to be diagonal. However, given that the Kraus representation is not unique, diagonalizing the matrix through some unitary leads to rewriting the conditions as:
 \begin{equation}
@@ -420,9 +420,9 @@ where $\beta_k$ is an eigenvalue of $\alpha$. Note that the probability of error
 
 A category of quantum architectures based on surface codes constitutes a highly promising pathway to fault-tolerant quantum computing. These codes are based on qubits placed in lattice arrangements, where the topological properties of their interactions help protect logical states. Surface codes originated from a 'toric' code proposed by Kitaev, a stabilizer code on a lattice with periodic boundary conditions corresponding to a torus.
 
-\subsection{The toric code}
+\subsection{The Toric Code}
 
-A toric code can be implemented through a square lattice populated by spin-$1/2$ elements. These qubits are placed at the centres of the bonds between lattice sites. The interactions are described by two distinct Hamiltonian terms, each representing a four-spin local coupling:
+A toric code\cite{Girvin2021,Herringer2020} can be implemented through a square lattice populated by spin-$1/2$ elements. These qubits are placed at the centres of the bonds between lattice sites. The interactions are described by two distinct Hamiltonian terms, each representing a four-spin local coupling:
 \begin{equation}
     H_{tc}=-\sum_s A_s -\sum_p B_p
 \end{equation}
@@ -436,7 +436,7 @@ where $Z_j$ refers to the Pauli Z matrix acting on spin $j$. Similarly, the seco
 \end{equation}
 involving bonds between the spins at the edges of a plaquette P.
 
-The Hamiltonian has ground states of $A_s=B_p=1$ (for all $s$ and $p$). Note that the terms commute, which is why eigenstates of the Hamiltonian will also be eigenstates of each of the terms. Therefore, for a lattice with $L_xL_y$ sites (with $L_x$ and $L_z$ referring to lattice horizontal and vertical dimensions) these ground state expressions would at first glance lead to $2L_xL_y$ constraints, and therefore one possible ground state. However, the operators are not independent. Using the properties of the Pauli matrices ($\sigma^2=1$) it can be shown that $\prod_{s}A_s=\prod_{p}B_p=1$. Thus there are only $2L_xL_y-2$ constraints, leading to four ground states. These ground states constitute a logical state space containing information equivalent to two qubits, and protected by the set of stabilizers $A_s$ and $B_p$.
+The Hamiltonian has ground states of $A_s=B_p=1$ (for all $s$ and $p$). Note that the terms commute, which is why eigenstates of the Hamiltonian will also be eigenstates of each of the terms. Therefore, for a lattice with $L_xL_y$ sites (with $L_x$ and $L_z$ referring to lattice horizontal and vertical dimensions), these ground state expressions would at first glance lead to $2L_xL_y$ constraints, and therefore one possible ground state. However, the operators are not independent. Using the properties of the Pauli matrices ($\sigma^2=1$) it can be shown that $\prod_{s}A_s=\prod_{p}B_p=1$. Thus there are only $2L_xL_y-2$ constraints, leading to four ground states. These ground states constitute a logical state space containing information equivalent to two qubits, and protected by the set of stabilizers $A_s$ and $B_p$.
 
 \begin{figure}
     \centering
@@ -504,11 +504,11 @@ The states satisfying $A_s=1$ (for all $s$) must have vertices with even numbers
     \label{fig:toric_code_loop}
 \end{figure}
 
-The two qubits of information stored by this code are not sensitive to small local perturbations, and therefore constitute a good candidate for fault-tolerant quantum memory. Furthermore, computations on the logical qubits are also constructable, by implementing logical operators given by strings and loops of X and Z operators. \textcolor{red}{add citation of \url{https://www.physics.rutgers.edu/grad/602/Lectures/JC_Presentations/0419/Intro_Toric_Code.pdf}}
+The two qubits of information stored by this code are not sensitive to small local perturbations, and therefore constitute a good candidate for fault-tolerant quantum memory. Furthermore, computations on the logical qubits are also constructible, by implementing logical operators given by strings and loops of X and Z operators\cite{Herringer2020}.
 
 \subsection{The Surface Code}
-
-The surface code was inspired by this toric code, and takes advantage of the fact that this topology is not a requirement for the development of this kind of stabilizer code, which can in fact be placed in a plane lattice. In this case the physical qubits are classified into data qubits and measurement qubits. The measurement qubits are associated with X measures or Z measures (as given by eigenvalues of the stabilizer terms A  and B discussed previously) performed on the adjacent data qubits (see Figure \ref{fig:surface_code_loop}).
+The surface code was inspired by this toric code, and takes advantage of the fact that this topology is not a requirement for the development of this kind of stabilizer code, which can in fact be placed in a plane lattice\cite{cleland2022,Fowler2012}
+. In this case, the physical qubits are classified into data qubits and measurement qubits. The measurement qubits are associated with X measures or Z measures (as given by eigenvalues of the stabilizer terms A  and B discussed previously) performed on the adjacent data qubits (see Figure \ref{fig:surface_code_loop}).
 
 \begin{figure}
     \centering
@@ -567,7 +567,7 @@ The code is executed as a series of cycles consisting of CNOT gate applications 
 \begin{figure}
     \centering
     \begin{tikzpicture}
-    \node[scale=1] {
+    \node[scale=1.2] {
     \begin{quantikz}
         \lstick{$\scriptstyle\ket{g}$} & \targ{} & \targ{} & \targ{} & \targ{} & \meter{}&\rstick[5]{$\scriptstyle\ket{\psi}_Z$}\\
         \lstick{$\scriptstyle a$}& \ctrl{-1} & & & & &\\
@@ -576,7 +576,7 @@ The code is executed as a series of cycles consisting of CNOT gate applications 
         \lstick{$\scriptstyle d$}& & & & \ctrl{-4} & & 
     \end{quantikz}};
     \end{tikzpicture}
-    \caption[Z-measure cycle for the surface code]{Z-measure cycle for the surface code. The labels a, b, c and d refer to the four data quits adjacent to the measurement qubit}
+    \caption[Z-measure cycle for the surface code]{Z-measure cycle for the surface code. The labels a, b, c and d refer to the four data qubits adjacent to the measurement qubit.}
     \label{fig:Zmeasurecycle}
 \end{figure}
 This cycle results in an eigenstate $\ket{\psi_Z}$ of the operation $Z_aZ_bZ_cZ_d$ with eigenvalues $\pm 1$.
@@ -601,7 +601,7 @@ The Hadamard gate is widely used in quantum computing algorithms, as it can be a
         \lstick{$\scriptstyle d$}& & & & & \targ & & & &
     \end{quantikz}};
     \end{tikzpicture}
-    \caption[X-measure cycle for the surface code]{X-measure cycle for the surface code. The labels a, b, c and d refer to the four data quits adjacent to the measurement qubit}
+    \caption[X-measure cycle for the surface code]{X-measure cycle for the surface code. The labels a, b, c and d refer to the four data qubits adjacent to the measurement qubit.}
     \label{fig:Xmeasurecycle}
 \end{figure}
 The combined operations on an X measurement cycle produce an eigenstate $\ket{\psi_X}$ of $X_aX_bX_cX_d$ with eigenvalues $\pm 1$.
@@ -618,17 +618,79 @@ A subsequent measurement cycle will project this state into eigenstates of $Z_aZ
 \end{equation}
 where $X_{abcd}$ is the eigenvalue of $X_aX_bX_cX_d$ for quiescent state $\ket{\psi}$. The first step in the equation uses the anticommutativity of $Z_a$ and $X_a$ ($\{X_a,Z_a\}=X_aZ_a+Z_aX_a=0$)\footnote{The operator $Z_a$ also commutes with $X_b$, $X_c$ and $X_d$ as it acts on a different qubit.} Thus, the new state is also an eigenstate of the X stabilizer, with the opposite sign eigenvalue. The Z measurements surrounding the erroneous data qubit are unmodified due to $Z_a$ commuting with itself.
 
-As the sign change affects both X measures surrounding the flipped data qubit, it is possible to identify which of the qubits suffered an error. Similarly, a bit-flip will be reflected in the outcomes of both adjacent Z measures. The repeated application of the cycles is also capable of detecting measurement errors. These could manifest, for example, a single sign change detected at a single measurement qubit (instead of two as related to the flips in data qubits). These errors will often disappear in later iterations of the cycle. If the errors are too likely, it becomes difficult to properly identify their cause, as proper identification requires them to be separated in space. If a misdiagnosed error gets corrected, it might lead to erroneous conclusions.
+As the sign change affects both X measures surrounding the flipped data qubit, it is possible to identify which of the qubits suffered an error. Similarly, a bit-flip will be reflected in the outcomes of both adjacent Z measures. The repeated application of the cycles is also capable of detecting measurement errors. These could manifest, for example, a single sign change detected at a single measurement qubit (instead of two as related to the flips in data qubits). These errors will often disappear in later iterations of the cycle. If the errors are too likely, it becomes difficult to properly identify their cause, as proper identification requires them to be separated in space. If a misdiagnosed error gets corrected, it might lead to erroneous conclusions\cite{Fowler2012}.
 
 \subsection{Logical encodings on the surface code}
 
 As can be seen in Figure \ref{fig:surface_code_loop}, surface codes are typically defined with \textit{rough} top and bottom boundaries given by measure-Z qubits, and \textit{smooth} measure-X boundaries to the left and to the right. The degrees of freedom for this case will be given by $2N$ (for $N$ the number of measurement qubits) and $2(N+1)$ corresponding to the data qubits. Then, the linearly independent set of stabilizers introduces $2N$ constraints. Therefore, the code can store one logical qubit's worth of information. Logical $X$ and $Z$ operators can be defined to manipulate the state of this qubit, by switching between quiescent states. The rate of logical errors (misidentified by the correction algorithm) will increase with code \textit{distance}, the minimum number of physical qubit flip operators required to define the logical operators. The logical operators commute with all stabilizers and must span the full length of the array. Thus, larger arrays are less sensitive to errors. 
 
-To perform useful calculations it is of interest to have more than one logical qubit encoded in a surface code array. This can be achieved by removing some of the constraints to obtain higher degrees of freedom. To this end, boundaries must be modified, for example by alternating X and Z boundaries. However, operators cannot connect equal-type sections of these boundaries, limiting the code's usability. A more fruitful approach is to create 'holes' in the array by switching off (i.e. not executing) some of the measurement qubits. Details on the resulting logical operators for this approach can be accessed in \textcolor{red}{cite \url{https://arxiv.org/pdf/1208.0928}}.
+To perform useful calculations it is of interest to have more than one logical qubit encoded in a surface code array. This can be achieved by removing some of the constraints to obtain higher degrees of freedom. To this end, boundaries must be modified, for example by alternating X and Z boundaries. However, operators cannot connect equal-type sections of these boundaries, limiting the code's usability. A more fruitful approach is to create 'holes' in the array by switching off (i.e. not executing) some of the measurement qubits. Details on the resulting logical operators for this approach can be accessed in \cite{Fowler2012}.
 
 \subsection{Surface Code Implementation}
 
-The distance-three surface code was implemented using Python and the Qiskit package of quantum computing tools. \textcolor{red}{Add code plots}
+The distance-two surface code was implemented using Python and the Qiskit package of quantum computing tools. This low-distance surface code is essentially the smallest that can be implemented for error correction, and consists of four data qubits and three measures (one X and two Z), for a total of seven qubits.
+
+The circuit for each cycle of this code is shown in Figure \ref{fig:7qubitcycle}. A diagram of the qubits used can be found in Figure \ref{fig:7qubitdiagramSC}.
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \node[scale=0.9] {
+    \begin{quantikz}
+        \lstick{$\scriptstyle X_1$} & \gate{H}& \ctrl{3} & \ctrl{4} & \ctrl{5} & \ctrl{6} & \gate{H}& & & & & \meter{}&\\
+        \lstick{$\scriptstyle Z_1$} & & & & & & & \targ{} & \targ{} & & & \meter{}&\\
+        \lstick{$\scriptstyle Z_2$} & & & & & & &  &  & \targ{} & \targ{} & \meter{}&\\
+        \lstick{$\scriptstyle D_1$} & &\targ & & & & & &\ctrl{-2} & & & & &\\
+        \lstick{$\scriptstyle D_2$}& & & \targ & & & & & & &\ctrl{-2} & & &\\
+        \lstick{$\scriptstyle D_3$}& & & & \targ & & & & & \ctrl{-4}& & & &\\
+        \lstick{$\scriptstyle D_4$}& & & & & \targ & & & & & &\ctrl{-4} & &
+    \end{quantikz}};
+    \end{tikzpicture}
+    \caption[Cycle for the seven qubit surface code]{Complete cycle for the seven qubit surface code. The labels $D_{1,..4}$ refer to the four data qubits.}
+    \label{fig:7qubitcycle}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \draw[Gray,dashed,thick] (0,0)--(1,1);
+        \draw[Gray,dashed,thick] (0,0)--(1,-1);
+        \draw[Gray,dashed,thick] (2,0)--(1,1);
+        \draw[Gray,dashed,thick] (2,0)--(1,-1);
+        \draw[Gray,dashed,thick] (2,0)--(3,-1);
+        \draw[Gray,dashed,thick] (2,0)--(3,1);
+        \draw[Gray,dashed,thick] (4,0)--(3,-1);
+        \draw[Gray,dashed,thick] (4,0)--(3,1);
+        \node[NavyBlue, thick,label=left:$Z_1$] at (0,0) {\large{$\mathbf{\bullet}$}};
+        \node[Emerald, thick,label=$X_1$] at (2,0) {\large{$\mathbf{\bullet}$}};
+        \node[NavyBlue, thick,label=right:$Z_2$] at (4,0) {\large{$\mathbf{\bullet}$}};
+        \node[NavyBlue, thick,label=$D_1$] at (1,1) {\large{$\mathbf{\circ}$}};
+        \node[NavyBlue, thick,label=$D_2$] at (3,1) {\large{$\mathbf{\circ}$}};
+        \node[NavyBlue, thick,label=below:$D_4$] at (3,-1) {\large{$\mathbf{\circ}$}};
+        \node[NavyBlue, thick,label=below:$D_3$] at (1,-1) {\large{$\mathbf{\circ}$}};
+
+    \end{tikzpicture}
+    \caption[Seven qubit surface code diagram]{Seven qubit surface code diagram. $D_{1,..4}$ refer to the four data qubits, and $Z_1$, $Z_2$ and $X_1$ to the measure/ancilla qubits.}
+    \label{fig:7qubitdiagramSC}
+\end{figure}
+
+
+Due to the noise model tools provided by Qiskit, the code implementation can be modified to include a variety of error types and rates. The results plotted here are based on a Qiskit backend for the sake of visualization. However, bit flips, decoherence and thermal relaxation errors were also implemented individually in the Python script, and thus the noise model can be modified easily. Further pre-built noise models are also included in Qiskit and can be tested for this code. The probability of success (that is, of the ancilla measuring $\ket{0}$) after each cycle decreases exponentially, as is shown in Figure \ref{fig:success_rate_SC}.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{Success_rate_SC.png}
+    \caption{Success rate of the seven-qubit surface code over several cycles}
+    \label{fig:success_rate_SC}
+\end{figure}
+
+The implementation shows the likelihood of different error types and the evolution with subsequent surface code cycles. The error syndromes plotted in Figure \ref{fig:syndrome_evol_sc}. refer to the occurrence of no errors ($K_0$), and of 1, 2 or 3 errors ($K_1$, $K_2$, $K_3$). These correspond to the number of ancillas measured in state $\ket{1}$. The execution of these cycles assumed that in previous iterations no errors occurred by discarding cases with erroneous prior cycles. This result (Figure \ref{fig:syndrome_evol_sc}) shows that, if cycle by cycle the errors are addressed, the surface code increases the probability over time of maintaining the correct state. The presented results are overall consistent with those shown in \cite{Andersen2020}, with some differences attributed to the use of distinct error models.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{syndrome_cycle.png}
+    \caption[Probability of different syndromes for seven-qubit surface code over several cycles]{Probability of different syndromes for seven-qubit surface code over several cycles. Results enforce that no errors took place in previous cycle applications}
+    \label{fig:syndrome_evol_sc}
+\end{figure}
+
 
 \section{Quantum Error Correction for Bosonic Modes}
 
@@ -649,7 +711,7 @@ The larger Hilbert spaces can also lead to efficient encodings. For example, the
 \end{eqnarray}
 This type of encoding, however, is extremely limited as the number of oscillator photons needed grows exponentially with the qubit number, and so does the rate of photon loss. Realistic bosonic codes typically leverage only the lower levels of a harmonic oscillator. Furthermore, a single photon decay could represent several highly correlated errors in the binary qubits (for example going from $\ket{10000}$ down to $\ket{01111}$), making error correction impracticable. Other encoding approaches can be carried out. In particular, it is useful to encode qubits in terms of phase differences between states. 
 
-Some of the most relevant codes for bosonic error correction include Schrodinger's cat codes and Gottesman-Kitaev-Preskill (GKP) codes. A simple but illustrative example of error correction comes from binomial codes, also known as 'kitten' codes due to their codewords being similar (though smaller) to those of the cat codes. This code presents similar capabilities to that of a four-qubit amplitude damping code, however, it can be executed through one oscillator mode and requires only one stabilizer. This represents a Hilbert space dimensionality reduction from 16 to just 5. It also differs from the qubit code in that it has been proven experimentally to reach and exceed the break-even point for error correction.
+Some of the most relevant codes for bosonic error correction include Schrodinger's cat codes and Gottesman-Kitaev-Preskill (GKP) codes\cite{Girvin2021}. A simple but illustrative example of error correction comes from binomial codes, also known as 'kitten' codes due to their codewords being similar (though smaller) to those of the cat codes. This code presents similar capabilities to that of a four-qubit amplitude damping code, however, it can be executed through one oscillator mode and requires only one stabilizer. This represents a Hilbert space dimensionality reduction from 16 to just 5. It also differs from the qubit code in that it has been proven experimentally to reach and exceed the break-even point for error correction.
 
 A simple binomial code can be constructed using the following codewords:
 \begin{eqnarray}
@@ -666,7 +728,7 @@ A further benefit of the binomial approach is that, having one mode rather than 
 
 \subsection{GKP codes}
 
-As mentioned previously, Gottesman-Kitaev-Preskill (GKP) bosonic codes constitute an important branch in bosonic mode QEC. Although proposed over two decades ago, recent research has made strides in the applicability of this methodology, increasing interest. The basic premise behind these codes is to work within a lattice in the oscillator phase space. Due to the quantum nature of the oscillator, the position and momentum operators do not commute. Therefore, translations in phase space around an adiabatic\footnote{Slow, smooth} transport loop introduce a geometric phase.
+As mentioned previously, Gottesman-Kitaev-Preskill (GKP) bosonic codes constitute an important branch in bosonic mode QEC\cite{Gottesman2001,Girvin2021,campagne2020,Terhal2020,Grimsmo2021,Brady2023,lachance2023}. Although proposed over two decades ago, recent research has made strides in the applicability of this methodology, increasing interest. The basic premise behind these codes is to work within a lattice in the oscillator phase space. Due to the quantum nature of the oscillator, the position and momentum operators do not commute. Therefore, translations in phase space around an adiabatic\footnote{Slow, smooth} transport loop introduce a geometric phase.
 
 The GKP codespace is the $+1$ eigenspace of a pair of translation operators in phase space. The stabilizers $\hat{S}_1=\hat{T}(\mathbf{U})$ and $\hat{S}_2=\hat{T}(\mathbf{V})$ must obey:
 \begin{equation}
@@ -691,18 +753,42 @@ The associated codespace is given by (a priori) infinitely squeezed, infinite-en
     \psi_0&=\sum_{n=-\infty}^{+\infty} \delta(x-(2n)\sqrt{\pi})\\
     \psi_1&=\sum_{n=-\infty}^{+\infty} \delta(x-(2n+1)\sqrt{\pi})
 \end{eqnarray}
-The phase space translations shown in Figure \textcolor{red}{add figure} $X_L$, $Y_L$ $Z_L$ form a representation of the Pauli matrices (obeying all the expected properties). Operations over these states are represented by Gaussians, performing actions such as \textit{squeezing} of the bosonic modes.
+The phase space translations shown in Figure \ref{fig:GKP_pauli_ops} $X_L$, $Y_L$ $Z_L$ form a representation of the Pauli matrices (obeying all the expected properties). Operations over these states are represented by Gaussians, performing actions such as \textit{squeezing} of the bosonic modes.
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \draw[dashed] (0,0)--(0,4);
+        \draw[dashed] (0,0)--(4,0);
+        \draw[dashed] (4,0)--(4,4) node[pos=0.5,label=right:$2\sqrt{\pi}$] {}; 
+        \draw[dashed] (2,0)--(2,4);
+        \draw[dashed] (0,2)--(4,2);
+        \draw[dashed] (0,4)--(4,4) node[pos=0.5,label=above:$2\sqrt{\pi}$] {};
+        \draw[Emerald, very thick, ->] (0,0)--(0,4) node[pos=0.75, label=left:$S_p$] {};
+        \draw[Emerald, very thick, ->] (0,0)--(4,0) node[pos=0.75, label=below:$S_x$] {};
+        \draw[NavyBlue, very thick, ->] (0,0)--(0,2) node[pos=0.5, label=left:$Z$] {};
+        \draw[NavyBlue, very thick, ->] (0,0)--(2,0) node[pos=0.5, label=below:$X$] {};
+        \draw[NavyBlue, very thick, ->] (0,0)--(2,2) node[pos=0.5, label=above left:$Y$] {};
+        \node at (3,3) {$\pi$};
+        \node at (3,1) {$\pi$};
+        \node at (1,3) {$\pi$};
+    \end{tikzpicture}
+    \caption[Square cell in lattice with stabilizer translations and Pauli operators]{Square cell in lattice defined by the stabilizer translations. The Pauli group operations $X$, $Y$ and $Z$ are also depicted as translations. The square has a total area of $4\pi$.}
+    \label{fig:GKP_pauli_ops}
+\end{figure}
+
+
 
 The main goal behind GKP codes was to correct small displacements such as those given by the Pauli group of translations. Over time it has been shown that they are actually capable of addressing more complex errors as well.
-For displacement errors, the effect is a change in the phases of the stabilizers. These changes are diagnosed by using ancilla qubits and performing conditional stabilizer displacements. The phase kickback caused by an ancilla measurement provides the real and imaginary parts of the error syndromes $\ket{psi}\hat{S}_x\bra{\psi}$ and $\ket{psi}\hat{S}_p\bra{\psi}$ (for a system in state $\ket{\psi}$).
+For displacement errors, the effect is a change in the phases of the stabilizers. These changes are diagnosed by using ancilla qubits and performing conditional stabilizer displacements. The phase kickback caused by an ancilla measurement provides the real and imaginary parts of the error syndromes $\bra{\psi}\hat{S}_x\ket{\psi}$ and $\bra{\psi}\hat{S}_p\ket{\psi}$ (for a system in state $\ket{\psi}$).
 
 Recall that for qubits, the break-even point was referred to where the logical qubit lifetime matched that of the longest-lived physical qubit. In this case, break-even occurs when the longest-lasting oscillator encoding (given by the lowest photon number, and thus losing photons at the slowest rate) is outlived.
-\textcolor{red}{add figs from the code}
 
-\clearpage
+GKP code implementations can also be studied through available software packages. For bosonic codes, the StrawberryFields package provides specialized tools, including the states used in GKP codes. Code implementations were used alongside the literature review carried out on this topic. In particular, we looked at StrawberryFields tutorials on initializing GKP states and applying damping operations to obtain physical, finite energy states. Figure \ref{fig:GKP_states} is one of the visualizations stemming from these tutorials, and shows the resulting GKP state for different values of damping parameter $\epsilon$. The full resource can be accessed in \cite{strawberryFields}.
 
-General \cite{Girvin2021} \cite{Andersen2020} \cite{Gottesman2009} \cite{Roffe2019} \cite{devitt}
-
-Specific Implementations \cite{Krinner2021} \cite{Chen2021} \cite{cleland2022}
-
-Bosonic \cite{campagne2020} \cite{Lau2016} \cite{Chuang1997} \cite{Terhal2020} \cite{Blais2020} \cite{Hu2019} \cite{Michael2016} \cite{Grimsmo2021} \cite{Cai2021} \cite{Brady2023} \cite{lachance2023}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.35]{sphx_glr_run_GKP_bosonic_002.png}
+    \caption[GKP state damping visualization]{GKP states for different values of damping parameter $\epsilon$. The variance of the represented peaks increases with $\epsilon$ and the peaks tend to come closer to the origin. The last plot, showing the large $\epsilon$ limit corresponds to the vacuum state. Extracted from \cite{strawberryFields}.}
+    \label{fig:GKP_states}
+\end{figure}

@@ -2,18 +2,48 @@
 
 \chapter{Neutrino Physics}
 
-Overview of neutrino physics:
 
-- Current main research challenges: neutrinos interacting with nuclei, this needing description of neutrino nucleon interactions, plus generalization to the interaction with the nucleus as a whole. Not producing complete kinematics. Variety of models needed to address different energy levels and areas of phase space.
+The study of neutrinos is at the core of current Particle Physics research. Massive neutrinos, for example, point towards physics beyond the Standard Model, and so to the necessary expansion of current theories. Due to this, there are several current and future experiments aiming to address the many open questions related to neutrinos. The famously elusive nature of these particles implies that experimental programs must be accompanied by robust computer simulation capabilities. This chapter aims to summarize some of the challenges associated with neutrino physics, and the role of event generators in addressing them. This will serve as a motivation for using quantum computing as part of the path forward in the field.
 
-- Role and goals of current and planned experiments. Neutrino oscillations, matter dominance, proton decay
+\section{Overview of Neutrino Physics}
 
-Neutrino physics and computation
+One of the main characteristics of neutrinos is that the cross-section of their interaction with matter is very small. Due to this, their initial detection was far from straightforward. As the name indicates, these particles are electrically neutral, for example. In fact, neutrinos only interact through the weak force and gravity, and they are some of the lightest known particles\cite{stecker,NustecWP}. 
 
-- Role of MC generators in the research
+Neutrinos were discovered through observations of beta decay, where an atom emits an electron. The process occurs when a neutron within the nucleus turns into a proton, modifying the atomic number. Experiments showed that the emitted electron did not carry the amount of energy expected, leading to the introduction of the (at first glance non-interacting) electron neutrino. An antineutrino was also found, occurring in the transition of a proton into a neutron.
 
-- Overview of how they work/what they do, emphasis on GENIE
+As the study of decays progressed, neutrinos were found to come in three flavours, each associated with a type of lepton: electron, muon, and tau. One of the most significant discoveries regarding neutrinos was the observation of neutrino oscillations. A neutrino originating with a particular flavour could be measured as belonging to a different lepton family as it travels through space. As a consequence of this, neutrinos must have a small mass. This idea, however, conflicts with the Standard Model, where neutrinos are predicted to be massless. The promise of physics Beyond the Standard Model has made neutrinos a pillar of High Energy Physics research. 
 
-- Quick overview of some of the inputs (tunes, models etc)
+The study of neutrinos has significant challenges. Experimentally, they often stem from the use of neutrino-nucleus interactions. The use of atomic nuclei is motivated by the higher rate of interaction compared to other known particles. However, when interpreting the results, it is not possible to know the exact interaction taking place between the neutrino and the components of the nucleus. Furthermore, the kinematics of the interaction are not known\cite{NustecWP}.
 
-- Mentioning some challenges? -->> probably covered by the research challenge section. Consider reordering
+Precision calculations for neutrino-nucleus scattering are a requirement for exploiting the potential of experiments. In particular, the advances in neutrino beam production from proton colliders will lead to high-statistics data. Achieving this demands quality modelling of Nuclear Physics, as well as High Energy Physics. As will be discussed later, this makes Monte Carlo event generators such as GENIE essential to this pursuit. 
+
+
+\section{Neutrino Experiments}
+
+There is a large number of neutrino experiments currently collecting data, as well as several large construction endeavours for future facilities. These experiments tend to vary in the types of induced reactions, and in the detection method and media (based on Cherenkov radiation or scintillation, for example). Valuable data has been obtained in the physics runs of experiments such as MicroBooNE and MINERvA, both located at Fermilab (United States), and T2K, based in Japan. 
+
+Most interesting to this PhD project is the expected influx of increased-precision data expected towards the end of the present decade and beyond. One of these experiments is Hyper-Kamiokande, the successor of T2K expected to begin data-taking in 2027. Similarly, the DUNE experiment aiming to send a beam of neutrinos from Fermilab in Illinois, to the Sanford Underground Research Facility in South Dakota could begin functioning in the next decade.
+
+The aims of these experiments are broad\cite{hyperk,dune}. Through the study of neutrino oscillations, many research questions can be addressed. For example, there are several theoretical parameters involved in the oscillations which can be estimated from the collected data. There is also the question of the ordering in the masses of the three neutrino flavours. Oscillations can also shed light on lepton CP violations, which could explain why matter dominates over antimatter in the universe. Neutrino experiments can also be of astronomical interest providing insights into neutron star and black hole formation. The experiment collaborators also hope to observe the decay of free protons. Protons are predicted to decay by some theories, however, their estimated half-life is extremely long ($\sim 10^{24}$ years), making detection unlikely and not achieved to date.
+
+The understanding of the data required to advance these goals will benefit greatly from the accuracy of Monte Carlo-generated results. Likewise, event generators play a role in estimating the viability and optimal design of proposed experiments. The improvement in computational capabilities is then an important piece of the neutrino puzzle.
+
+\section{Event Generators}
+
+Monte Carlo methods are widely used in High Energy Physics, and Physics more broadly. This PhD project benefits from access to the GENIE (Generates Events for Neutrino Interaction Experiments) generator team working from Liverpool. This event generator has already been adopted by collaborators in different experiments. Among the goals of the project is sustained evolution to accompany the current needs of the community. 
+
+The main idea behind Monte Carlo event generators is to produce particle physics events with the same probability that they occur in nature. They achieve this by melding robust theoretical and phenomenological physics with Monte Carlo integration. There are many benefits to this integration method, including high convergence in multiple dimensions, ease of error estimation, and compatibility with complex integration regions. This approach can help link experimentally observed states to the unknown associated kinematics.
+
+Developing comprehensive event generation poses many challenges. In the case of neutrino interactions, simulations need to span wide energy ranges to address the needs of experiments. For these energy ranges, the nucleon descriptions must cover perturbative and non-perturbative scenarios. Many elements involved in the modelling are given by approaches with validity at limited energies. Therefore, overall models for nuclear physics (such as Fermi Gas), hadronization, and other mechanisms must be built from several of these partial descriptions to produce results in all the desired phase space. Great care must be taken to prevent discontinuities, for example. Moreover, some kinematic regions may lack pre-existing models, thus requiring extrapolation or development of new models\cite{Andreopoulos2021}.
+
+\subsection{Nuclear Effective Field Theories}
+
+Effective field theories (EFTs) are often used in Particle Physics. These theories approximate the behaviour of field theories at lower energies, by disregarding short-distance degrees of freedom. As approximations, they are often computationally cheaper to implement computationally than other field theory simulations, such as lattice gauge theories.
+
+One of the difficulties in neutrino-nucleus interaction descriptions comes from the modelling of nuclear structures. Nuclear EFTs have been proven to be a useful approach to this issue. Pionless EFT, for example, takes neutrons and protons as the relevant degrees of freedom, with an associated energy scale given by the pion mass. This theory has been used to model some Fermi Gases and light nuclei\cite{Bansal2017}. Meanwhile, Chiral EFT has been implemented for heavy nuclei. 
+
+Some work has been produced regarding the implementation of these EFTs in lattice qubit systems. The next chapter proposes the application of nuclear effective field theories in bosonic quantum systems as the next step for this PhD project.
+
+
+\clearpage
+

@@ -1,15 +1,20 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Bloch sphere representation of a qubit state}}{3}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Bloch sphere representation of a qubit state}}{5}{figure.caption.8}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces CNOT gate encoding circuit to implement two-qubit bit-flip detection.}}{15}{figure.caption.9}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces CNOT gate encoding circuit to implement three-qubit bit-flip detection.}}{16}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Success rate of the three-qubit error correction code for different bit-flip probabilities.}}{18}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Figure showing a toric code lattice}}{22}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Example of a closed loop formed by down-spin bonds}}{23}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Surface code diagram}}{24}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Z-measure cycle for the surface code}}{24}{figure.caption.16}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces X-measure cycle for the surface code}}{25}{figure.caption.17}%
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces CNOT gate encoding circuit to implement two-qubit bit-flip detection.}}{17}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces CNOT gate encoding circuit to implement three-qubit bit-flip detection.}}{18}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Success rate of the three-qubit error correction code for different bit-flip probabilities.}}{20}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Figure showing a toric code lattice}}{24}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Example of a closed loop formed by down-spin bonds}}{25}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Surface code diagram}}{26}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Z-measure cycle for the surface code}}{26}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces X-measure cycle for the surface code}}{27}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Cycle for the seven qubit surface code}}{29}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Seven qubit surface code diagram}}{29}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Success rate of the seven-qubit surface code over several cycles}}{30}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Probability of different syndromes for seven-qubit surface code over several cycles}}{30}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Square cell in lattice with stabilizer translations and Pauli operators}}{34}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces GKP state damping visualization}}{35}{figure.caption.24}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
